@@ -87,6 +87,8 @@ texture = ExtResource( 3 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 452, 251 )
+MAX_SPEED = 200
+ACCELERATION = 2000
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
@@ -118,7 +120,6 @@ index = 3
 
 [node name="Tree" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( -584, 93 )
-z_index = 5
 
 [node name="Tree2" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1164, 250 )
