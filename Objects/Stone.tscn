@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Resources.gd" type="Script" id=1]
+[ext_resource path="res://Imagens/Pedra2.png" type="Texture" id=2]
+[ext_resource path="res://Objects/StoneDrop.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 23.5, 8 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 41.0122
+
+[node name="Stone" type="StaticBody2D"]
+z_as_relative = false
+script = ExtResource( 1 )
+type = "Stone"
+drop = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.5, 14 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 1, 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
