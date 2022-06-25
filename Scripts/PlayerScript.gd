@@ -4,8 +4,6 @@ onready var animPlayer = $AnimationPlayer
 export var MAX_SPEED = 200
 export var ACCELERATION = 2000
 var inBuildableArea = false
-var canPlay = true
-var currentAnim = ""
 var inResourceArea = false
 var inHouseArea = true
 var resourceAreaCounter = 0
@@ -27,7 +25,7 @@ func _physics_process(delta):
 	var axis = get_input_axis()
 	if Input.is_action_just_pressed("ui_select") and inResourceArea:
 		canMove = false
-		AnimationPlay("collect" + str(resourceType))
+		animPlayer.play("collect" + str(resourceType))
 		yield(animPlayer, "animation_finished")
 		canMove = true
 	elif Input.is_action_just_pressed("ui_select") and inBuildableArea and (!currentBuildable.isBuilt or currentBuildable.isCampfire):
@@ -41,22 +39,23 @@ func _physics_process(delta):
 			resources[1][1] -= currentBuildable.requirements[1][1]
 			resources[2][1] -= currentBuildable.requirements[2][1]
 			resources[3][1] -= currentBuildable.requirements[3][1]
-			AnimationPlay("build")
+			animPlayer.play("build")
 			yield(animPlayer, "animation_finished")
 			currentBuildable.Build()
 			canMove = true
-	elif axis.x > 0:
-		AnimationPlay("walkH")
-		$Sprite.flip_h = true
-	elif axis.x < 0:
-		AnimationPlay("walkH")
-		$Sprite.flip_h = false
-	elif axis.y > 0:
-		AnimationPlay("walkH")
-	elif axis.y < 0:
-		AnimationPlay("walkH")
-	elif axis == Vector2.ZERO:
-		AnimationPlay("idle")
+#	elif axis == Vector2.ZERO:
+#		animPlayer.play("idle")
+#	elif axis.x > 0:
+#		animPlayer.play("walkV")
+#		$Sprite.flip_h = false
+#	elif axis.x < 0:
+#		animPlayer.play("walkV")
+#		$Sprite.flip_h = true
+#	elif axis.y > 0:
+#		animPlayer.play("walkDown")
+#	elif axis.y < 0:
+#		animPlayer.play("walkUp")
+#		$Sprite.flip_v = true
 	if axis == Vector2.ZERO:
 		apply_friction(ACCELERATION * delta) 
 	else:
@@ -77,18 +76,6 @@ func apply_friction(amount):
 	else:
 		motion = Vector2.ZERO
 #Movement End
-
-#Animation Controller
-func AnimationPlay(animation):
-	if "collect" in animation or animation == "build":
-		canPlay = false
-		animPlayer.play(animation)
-		currentAnim = animation
-		yield(animPlayer, "animation_finished")
-		canPlay = true
-	elif canPlay:
-		currentAnim = animation
-		animPlayer.play(animation)
 
 #Resource Collection
 func _on_AnimationPlayer_animation_finished(anim_name):
