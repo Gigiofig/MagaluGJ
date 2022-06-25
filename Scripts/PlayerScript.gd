@@ -5,6 +5,7 @@ export var MAX_SPEED = 200
 export var ACCELERATION = 2000
 var inBuildableArea = false
 var inResourceArea = false
+var inHouseArea = true
 var resourceAreaCounter = 0
 var currentBuildable = null
 var currentResource = []
