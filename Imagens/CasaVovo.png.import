@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset_Tilemap.png-18e0845b4a182720710bbd99c6d43c31.stex"
+path="res://.import/CasaVovo.png-ff521792b32166a361e8ac802dbb809a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagens/Tilemap/tileset_Tilemap.png"
-dest_files=[ "res://.import/tileset_Tilemap.png-18e0845b4a182720710bbd99c6d43c31.stex" ]
+source_file="res://Imagens/CasaVovo.png"
+dest_files=[ "res://.import/CasaVovo.png-ff521792b32166a361e8ac802dbb809a.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
