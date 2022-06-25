@@ -11,7 +11,13 @@ config_version=4
 [application]
 
 config/name="Beaver River"
+run/main_scene="res://Scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=896
+window/size/height=504
 
 [physics]
 

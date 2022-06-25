@@ -1,0 +1,265 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Resources.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Drop.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Counter.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Grandma's House.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Buildables.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Vela1.png" type="Texture" id=8]
+[ext_resource path="res://Vela2.png" type="Texture" id=9]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+margin_left = 13.0
+margin_top = 9.0
+margin_right = 907.0
+margin_bottom = 513.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="StoneTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
+modulate = Color( 0.266667, 0.266667, 0.266667, 1 )
+margin_right = 64.0
+margin_bottom = 64.0
+texture = ExtResource( 3 )
+
+[node name="StoneCounter" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
+margin_left = 68.0
+margin_top = 25.0
+margin_right = 76.0
+margin_bottom = 39.0
+text = "0"
+
+[node name="WoodTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
+modulate = Color( 0.34902, 0.25098, 0.0156863, 1 )
+margin_left = 80.0
+margin_right = 144.0
+margin_bottom = 64.0
+texture = ExtResource( 3 )
+
+[node name="WoodCounter" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
+margin_left = 148.0
+margin_top = 25.0
+margin_right = 156.0
+margin_bottom = 39.0
+text = "0"
+
+[node name="RedFlowerTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
+modulate = Color( 0.266667, 0.266667, 0.266667, 1 )
+margin_left = 160.0
+margin_right = 224.0
+margin_bottom = 64.0
+texture = ExtResource( 3 )
+
+[node name="PinkFlowerTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
+modulate = Color( 0.266667, 0.266667, 0.266667, 1 )
+margin_left = 228.0
+margin_right = 292.0
+margin_bottom = 64.0
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 451, 251 )
+z_index = 50
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 1
+
+[node name="Resources" parent="." instance=ExtResource( 2 )]
+position = Vector2( 800, -185 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 716, -249 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 714, -177 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 631, -185 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 610, -267 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 526, -331 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 524, -259 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 441, -267 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 627, -109 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 543, -173 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 541, -101 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 458, -109 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 819, -338 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 735, -402 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources18" parent="." instance=ExtResource( 2 )]
+position = Vector2( 733, -330 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources19" parent="." instance=ExtResource( 2 )]
+position = Vector2( 650, -338 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources20" parent="." instance=ExtResource( 2 )]
+position = Vector2( 966, -95 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources21" parent="." instance=ExtResource( 2 )]
+position = Vector2( 882, -159 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 880, -87 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources23" parent="." instance=ExtResource( 2 )]
+position = Vector2( 797, -95 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources24" parent="." instance=ExtResource( 2 )]
+position = Vector2( 997, -259 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources25" parent="." instance=ExtResource( 2 )]
+position = Vector2( 913, -323 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources26" parent="." instance=ExtResource( 2 )]
+position = Vector2( 911, -251 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources27" parent="." instance=ExtResource( 2 )]
+position = Vector2( 828, -259 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 490, 136 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 275, 27 )
+type = "Wood"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="Resources5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 172, 264 )
+type = "Stone"
+texture = ExtResource( 3 )
+drop = ExtResource( 4 )
+
+[node name="House" parent="." instance=ExtResource( 6 )]
+position = Vector2( 449, -3 )
+
+[node name="Buildables" parent="." instance=ExtResource( 7 )]
+position = Vector2( 332, 141 )
+builtTexture = ExtResource( 8 )
+altTexture = ExtResource( 9 )
+isCampfire = true
+requirements = [ [ "Wood", 2 ], [ "Stone", 1 ], [ "RedFlower", 0 ], [ "PinkFlower", 0 ] ]
+
+[node name="RedFlower" parent="." instance=ExtResource( 4 )]
+position = Vector2( 677, 73 )
+type = "RedFlower"
+index = 2
+
+[node name="PinkFlower" parent="." instance=ExtResource( 4 )]
+position = Vector2( 601, 65 )
+type = "PinkFlower"
+index = 3
