@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/PlayerScript.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/Artie.png" type="Texture" id=2]
 [ext_resource path="res://Imagens/Sombra.png" type="Texture" id=3]
+[ext_resource path="res://Audio/footstep.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Collect 2.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 15, 10.5 )
@@ -41,7 +43,7 @@ tracks/0/keys = {
 "values": [ 23 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "collectStone"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -50,14 +52,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 13, 16 ]
+"values": [ 15, 16, 17, 18, 18 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 resource_name = "collectWood"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -65,10 +68,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 8, 12 ]
+"values": [ 11, 10, 11, 12, 13, 14 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -85,7 +88,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 0 ]
+"values": [ 0, 1, 2, 3 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -118,6 +121,24 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 4, 5, 6, 7, 8, 9, 4 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("../Passos")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0.2, 0.8 )
 }
 
 [sub_resource type="Animation" id=9]
@@ -158,8 +179,8 @@ texture = ExtResource( 3 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -37 )
 texture = ExtResource( 2 )
-hframes = 4
-vframes = 3
+hframes = 5
+vframes = 4
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -167,11 +188,25 @@ root_node = NodePath("../Sprite")
 autoplay = "idle"
 anims/RESET = SubResource( 6 )
 anims/build = SubResource( 10 )
-anims/collectStone = SubResource( 4 )
-anims/collectWood = SubResource( 3 )
+anims/collectStone = SubResource( 3 )
+anims/collectWood = SubResource( 4 )
 anims/idle = SubResource( 5 )
 anims/walkDown = SubResource( 8 )
 anims/walkH = SubResource( 7 )
 anims/walkUp = SubResource( 9 )
+
+[node name="Passos" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -14.054
+pitch_scale = 0.73
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Construct" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Collect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -8.0
+pitch_scale = 0.77
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

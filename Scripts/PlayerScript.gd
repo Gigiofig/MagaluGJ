@@ -118,6 +118,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			time += 5
 
 func Collect(index, type, object):
+	$Collect.play()
 	if resources[index][1] < maxResources: 
 		resources[index][1] += 1
 		emit_signal(type + "Collected")
