@@ -381,13 +381,13 @@ position = Vector2( -191.5, -33 )
 shape = SubResource( 6 )
 
 [node name="RedFlower" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 591, 166 )
+position = Vector2( 1097, -111 )
 type = "RedFlower"
 index = 2
 dropTex = ExtResource( 17 )
 
 [node name="PinkFlower" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 306, 187 )
+position = Vector2( -94, -97 )
 type = "PinkFlower"
 index = 3
 dropTex = ExtResource( 16 )
@@ -506,6 +506,10 @@ maxCounter = 3
 
 [node name="Tree41" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( -854, -118 )
+maxCounter = 3
+
+[node name="Tree84" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( -218, -109 )
 maxCounter = 3
 
 [node name="Tree42" parent="YSort" instance=ExtResource( 10 )]
