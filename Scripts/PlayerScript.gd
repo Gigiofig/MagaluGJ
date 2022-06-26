@@ -15,6 +15,7 @@ var resourceType = null
 var motion = Vector2(0,0)
 var canMove = true
 var maxResources = 20
+var hasPotion = false
 var resources = [["Wood", 0],["Stone", 0],["RedFlower",0],["PinkFlower",0]]
 
 signal WoodCollected
@@ -27,6 +28,7 @@ func _physics_process(delta):
 	var axis = get_input_axis()
 	if Input.is_action_just_pressed("ui_select") and inResourceArea:
 		canMove = false
+		motion = Vector2(0,0)
 		AnimationPlay("collect" + str(resourceType))
 		yield(animPlayer, "animation_finished")
 		canMove = true
@@ -45,6 +47,11 @@ func _physics_process(delta):
 			yield(animPlayer, "animation_finished")
 			currentBuildable.Build()
 			canMove = true
+	elif Input.is_action_just_pressed("ui_select") and inHouseArea:
+		if hasPotion:
+			#Acaba o jogo
+			get_tree().change_scene("res://Objects/GrandmaHouse.tscn")
+			
 	elif axis == Vector2.ZERO:
 		AnimationPlay("idle")
 	elif axis.x > 0 and canPlay:

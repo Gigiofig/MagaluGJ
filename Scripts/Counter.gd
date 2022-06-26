@@ -10,6 +10,7 @@ func _ready():
 	playerNode.connect("RedFlowerCollected", self, "on_RedFlower_Collected")
 	playerNode.connect("PinkFlowerCollected", self, "on_PinkFlower_Collected")
 
+
 func on_Wood_Collected():
 	$HBoxContainer/WoodCounter.text = str(playerNode.resources[0][1])
 
@@ -21,6 +22,12 @@ func on_RedFlower_Collected():
 
 func on_PinkFlower_Collected():
 	$HBoxContainer/PinkFlowerTexture.visible = true
+	
+func Potion_Built():
+	$HBoxContainer/RedFlowerTexture.visible = false
+	$HBoxContainer/PinkFlowerTexture.visible = false
+	$HBoxContainer/PotionTexture.visible = true
+	playerNode.hasPotion = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
