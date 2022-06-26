@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Imagens/Tilemap/tileset_Tilemap.tres" type="TileSet" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Shaders/WaterShader.tres" type="Shader" id=15]
 [ext_resource path="res://Imagens/Flor2.png" type="Texture" id=16]
 [ext_resource path="res://Imagens/Flor1.png" type="Texture" id=17]
+[ext_resource path="res://Imagens/PonteCima.png" type="Texture" id=18]
 [ext_resource path="res://Imagens/Pedra.png" type="Texture" id=20]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -170,7 +171,7 @@ isBridge = true
 [node name="Ponte2" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( -928, 1321 )
 builtTexture = ExtResource( 8 )
-altTexture = ExtResource( 9 )
+altTexture = ExtResource( 18 )
 isBridge = true
 
 [node name="RedFlower" parent="YSort" instance=ExtResource( 4 )]
@@ -463,14 +464,14 @@ position = Vector2( 635, 1134 )
 altTexture = ExtResource( 20 )
 
 [node name="Stone10" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 871, 932 )
+position = Vector2( 1065, 738 )
 altTexture = ExtResource( 20 )
 
 [node name="Stone11" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 1403, 796 )
+position = Vector2( 894, 670 )
 
 [node name="Stone12" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 1290, 1602 )
+position = Vector2( 332, 354 )
 altTexture = ExtResource( 20 )
 
 [node name="Stone51" parent="YSort" instance=ExtResource( 11 )]

@@ -12,6 +12,13 @@ export var maxCounter = 1
 func _ready():
 	if altTexture != null:
 		$Sprite.texture = altTexture
+		if "Stone" in name:
+			$AltCollisionShape2D.disabled = false
+			$CollisionShape2D.disabled = true
+			$Shadow.scale = Vector2(1.3, 0.8)
+			$Shadow.position = Vector2(3, 18)
+			$Sprite.scale = Vector2(2, 2)
+			$Sprite.position = Vector2(0, -20)
 
 func _on_Area2D_body_entered(body):
 	if "Player" in body.name and !isDestroyed:
@@ -19,15 +26,17 @@ func _on_Area2D_body_entered(body):
 		body.resourceType = type
 		body.resourceAreaCounter += 1
 		body.currentResource.append(self)
+		print(body.currentResource)
 
 func _on_Area2D_body_exited(body):
-	if "Player" in body.name and !isDestroyed:
+	if "Player" in body.name:
 		body.resourceAreaCounter -= 1
 		body.currentResource.erase(self)
 		if body.resourceAreaCounter < 1:
 			body.inResourceArea = false
 			body.resourceType = null
 			body.currentResource = []
+		print(body.currentResource)
 
 func IncreaseCounter():
 	counter += 1
@@ -43,8 +52,7 @@ func Destroy(resourceType):
 	elif type == "Stone":
 		drop_instance.index = 1
 	drop_instance.position = position - Vector2(0,20)
-	get_owner().get_node("YSort/Player").currentResource.erase(self)
-	print(get_owner().get_node("YSort/Player").currentResource.erase(self))
+#	get_owner().get_node("YSort/Player").currentResource.erase(self)
 	get_parent().add_child(drop_instance)
 	$Sprite.texture = brokenTexture
 	$Sprite.material = null
@@ -53,4 +61,6 @@ func Destroy(resourceType):
 		$Shadow.scale = Vector2(0.3,0.3)
 	else:
 		$CollisionShape2D.queue_free()
+		$AltCollisionShape2D.queue_free()
 		$Shadow.queue_free()
+	$Area2D.queue_free()

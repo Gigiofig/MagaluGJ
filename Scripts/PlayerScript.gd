@@ -39,6 +39,7 @@ func _physics_process(delta):
 				counter += 1
 		if counter == 4:
 			canMove = false
+			motion = Vector2.ZERO
 			resources[0][1] -= currentBuildable.requirements[0][1]
 			resources[1][1] -= currentBuildable.requirements[1][1]
 			resources[2][1] -= currentBuildable.requirements[2][1]
@@ -50,6 +51,8 @@ func _physics_process(delta):
 	elif Input.is_action_just_pressed("ui_select") and inHouseArea:
 		if hasPotion:
 			#Acaba o jogo
+			canMove = false
+			motion = Vector2.ZERO
 			get_tree().change_scene("res://Objects/GrandmaHouse.tscn")
 			
 	elif axis == Vector2.ZERO:
