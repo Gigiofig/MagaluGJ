@@ -3,40 +3,40 @@
 [ext_resource path="res://Imagens/Tilemap/tileset_Tilemap.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 32, 32, 5.74019, 32, 5.74019, 5.521, 32, 5.521 )
+points = PoolVector2Array( 32, 32, 8.83801, 32, 10.466, 9.79621, 32, 9.79621 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 16.873, 0, 17.5428 )
+points = PoolVector2Array( 0, 0, 32, 0, 32, 11.1478, 0, 11.1478 )
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
-points = PoolVector2Array( 0, 0, 24.1251, 0, 24.1251, 16.873, 0, 16.873 )
+points = PoolVector2Array( 0, 0, 22.0506, 0.449677, 17.1666, 11.6129, 0, 11.6129 )
 
 [sub_resource type="ConvexPolygonShape2D" id=12]
-points = PoolVector2Array( 0, 0.647736, 27.4741, 0, 27.4741, 32, 0, 32 )
+points = PoolVector2Array( 0, 0.647736, 22.5157, 0, 22.2831, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=13]
-points = PoolVector2Array( 0, 3.84651, 32, 3.17672, 32, 32, 0, 32 )
+points = PoolVector2Array( 0, 10.2613, 32, 10.4939, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=14]
-points = PoolVector2Array( 32, 32, 5.40529, 31.7932, 5.0704, 0, 32, 0.312836 )
+points = PoolVector2Array( 32, 32, 9.76827, 32, 8.60545, 0, 32, 0.312836 )
 
 [sub_resource type="ConvexPolygonShape2D" id=24]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PoolVector2Array( 23.0752, 0, 32, 9.19287, 32, 32, 0, 0.355286 )
 
 [sub_resource type="ConvexPolygonShape2D" id=25]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PoolVector2Array( 0, 9.42545, 8.7504, 0, 32, 0, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=19]
-points = PoolVector2Array( 0, 4.85121, 27.1392, 6.1908, 26.8043, 32, 0, 32 )
+points = PoolVector2Array( 0, 10.0288, 22.7483, 10.0288, 22.7483, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=29]
 points = PoolVector2Array( 0, 32, 0.206039, 0.0155716, 32, 0, 32, 12.0316, 21.1372, 12.8068, 22.8814, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=30]
-points = PoolVector2Array( 9.68066, 32, 12.2001, 13.0006, 0, 11.644, 0, 0, 32, 0, 32, 32 )
+points = PoolVector2Array( 9.21555, 32, 12.2001, 13.0006, 0, 11.644, 0, 0, 32, 0, 32, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=28]
-points = PoolVector2Array( 32, 18.0787, 0, 17.5, 0, 0, 32, 0 )
+points = PoolVector2Array( 32, 10.9153, 14.8848, 10.2175, 9.76827, 0.449677, 32, 0 )
 
 [resource]
 2/name = "tileset_Tilemap.png 2"
