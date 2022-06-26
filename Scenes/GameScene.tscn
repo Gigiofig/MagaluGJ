@@ -418,6 +418,15 @@ margin_bottom = 90.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 9 )
 
+[node name="PotionTexture" type="TextureRect" parent="CanvasLayer/Control/Panel2"]
+visible = false
+margin_left = 35.0
+margin_top = 5.0
+margin_right = 99.0
+margin_bottom = 69.0
+mouse_filter = 2
+texture = ExtResource( 32 )
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control"]
 margin_left = 740.0
 margin_top = 22.0
@@ -438,13 +447,6 @@ margin_right = 64.0
 margin_bottom = 64.0
 mouse_filter = 2
 texture = ExtResource( 16 )
-
-[node name="PotionTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer2"]
-visible = false
-margin_right = 64.0
-margin_bottom = 64.0
-mouse_filter = 2
-texture = ExtResource( 32 )
 
 [node name="Panel3" type="Panel" parent="CanvasLayer/Control"]
 margin_left = 821.0
@@ -631,7 +633,7 @@ position = Vector2( -191.5, -33 )
 shape = SubResource( 6 )
 
 [node name="RedFlower" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 1097, -111 )
+position = Vector2( 1099, -108 )
 type = "RedFlower"
 index = 2
 dropTex = ExtResource( 17 )
@@ -648,7 +650,7 @@ texture = ExtResource( 30 )
 energy = 0.5
 
 [node name="PinkFlower" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( -110, -113 )
+position = Vector2( -88, -90 )
 type = "PinkFlower"
 index = 3
 dropTex = ExtResource( 16 )

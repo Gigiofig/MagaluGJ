@@ -34,7 +34,7 @@ func on_PinkFlower_Collected():
 func Potion_Built():
 	$HBoxContainer2/RedFlowerTexture.visible = false
 	$HBoxContainer2/PinkFlowerTexture.visible = false
-	$HBoxContainer2/PotionTexture.visible = true
+	$Panel2/PotionTexture.visible = true
 	playerNode.hasPotion = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
