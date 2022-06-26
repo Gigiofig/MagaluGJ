@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Imagens/Tilemap/tileset_Tilemap.tres" type="TileSet" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://Theme/THEME.tres" type="Theme" id=29]
 [ext_resource path="res://Imagens/light.png" type="Texture" id=30]
 [ext_resource path="res://Imagens/FogueiraCentral3.png" type="Texture" id=31]
+[ext_resource path="res://Imagens/sopa.png" type="Texture" id=32]
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.396078, 0.101961, 0.101961, 1 )
@@ -437,24 +438,26 @@ texture = ExtResource( 16 )
 
 [node name="PotionTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer2"]
 visible = false
-margin_left = 136.0
-margin_right = 200.0
+margin_right = 64.0
 margin_bottom = 64.0
 mouse_filter = 2
-texture = ExtResource( 3 )
+texture = ExtResource( 32 )
 
 [node name="Panel3" type="Panel" parent="CanvasLayer/Control"]
 margin_left = 828.0
-margin_top = 118.0
+margin_top = 177.0
 margin_right = 859.0
-margin_bottom = 313.0
+margin_bottom = 372.0
 mouse_filter = 2
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Progress" type="VSlider" parent="CanvasLayer/Control/Panel3"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 24.0
-margin_bottom = 183.0
+margin_left = 7.5
+margin_top = 11.0
+margin_right = 23.5
+margin_bottom = 186.0
 rect_rotation = -359.999
 mouse_filter = 2
 size_flags_horizontal = 4
@@ -464,7 +467,7 @@ value = 30.0
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 440, 176 )
+position = Vector2( 402, 216 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
@@ -545,6 +548,11 @@ altTexture = ExtResource( 21 )
 isBridge = true
 requirements = [ [ "Wood", 4 ], [ "Stone", 9 ], [ "RedFlower", 0 ], [ "PinkFlower", 0 ] ]
 
+[node name="Built7" type="Sprite" parent="YSort/Ponte2"]
+visible = false
+z_index = 1
+texture = ExtResource( 22 )
+
 [node name="Built" type="Sprite" parent="YSort/Ponte2"]
 visible = false
 position = Vector2( -64, 0 )
@@ -603,11 +611,6 @@ texture = ExtResource( 22 )
 position = Vector2( -384, 0 )
 texture = ExtResource( 21 )
 flip_h = true
-
-[node name="Built7" type="Sprite" parent="YSort/Ponte2"]
-visible = false
-z_index = 1
-texture = ExtResource( 22 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="YSort/Ponte2"]
 position = Vector2( 0, 11 )
@@ -1064,6 +1067,14 @@ maxCounter = 3
 position = Vector2( 1358, -138 )
 maxCounter = 3
 
+[node name="Stone59" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 1428, -136 )
+maxCounter = 3
+
+[node name="Stone60" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 1404, -212 )
+maxCounter = 3
+
 [node name="Stone5" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1185, -608 )
 maxCounter = 3
@@ -1194,7 +1205,7 @@ altTexture = ExtResource( 20 )
 maxCounter = 5
 
 [node name="Stone39" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 1406, -179 )
+position = Vector2( 1382, -176 )
 altTexture = ExtResource( 20 )
 maxCounter = 5
 
@@ -1284,7 +1295,7 @@ altTexture = ExtResource( 20 )
 maxCounter = 5
 
 [node name="Stone32" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 1292, -91 )
+position = Vector2( 1296, -116 )
 altTexture = ExtResource( 20 )
 maxCounter = 5
 

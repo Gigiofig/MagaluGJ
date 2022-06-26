@@ -24,8 +24,6 @@ func _ready():
 
 func Build():
 	if !isBuilt:
-		var particles_instance = particles.instance()
-		add_child(particles_instance)
 		spriteObj.texture = builtTexture
 		isBuilt = true
 		if isCampfire:
@@ -44,7 +42,10 @@ func Build():
 				
 			for i in get_children():
 				if "Built" in i.name or (i == spriteObj and !vertical):
+					print(i)
 					i.visible = true
+					var particles_instance = particles.instance()
+					i.add_child(particles_instance)
 					yield(get_tree().create_timer(0.2), "timeout")
 				else:
 					i.visible = false

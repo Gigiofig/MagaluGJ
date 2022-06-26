@@ -58,14 +58,27 @@ func IncreaseCounter():
 			$Sprite.texture = smallStoneSprite
 		Drop(type)
 	
-func Shake():
+func Shake(type):
 	var lastPos = position.x
+	var duration
+	if "Wood" in type:
+		duration = 0.03
+	else:
+		duration = 0.05
+		
 	for i in range(10):
 		position.x += 1
-		yield(get_tree().create_timer(0.05), "timeout")
+		yield(get_tree().create_timer(duration), "timeout")
 		position.x -= 2
-		yield(get_tree().create_timer(0.05), "timeout")
+		yield(get_tree().create_timer(duration), "timeout")
 		position.x = lastPos
+#	else:
+#		for i in range(10):
+#			position.x += 1
+#			yield(get_tree().create_timer(0.05), "timeout")
+#			position.x -= 2
+#			yield(get_tree().create_timer(0.05), "timeout")
+#			position.x = lastPos
 
 
 func Drop(resourceType):

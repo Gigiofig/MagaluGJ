@@ -101,7 +101,7 @@ func AnimationPlay(animation):
 	if ("collect" in animation or animation == "build") and canPlay:
 		canPlay = false
 		if currentResource != []:
-			currentResource.back().Shake()
+			currentResource.back().Shake(str(resourceType))
 		animPlayer.play(animation)
 		currentAnim = animation
 		yield(animPlayer, "animation_finished")
@@ -116,6 +116,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		currentResource.back().IncreaseCounter()
 		if "Wood" in anim_name:
 			time += 5
+		
 
 func Collect(index, type, object):
 	$Collect.play()
