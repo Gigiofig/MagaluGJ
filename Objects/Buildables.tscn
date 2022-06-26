@@ -4,8 +4,8 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Vela1.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 22.0907
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32, 32 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 48, 42 )
@@ -26,9 +26,10 @@ texture = ExtResource( 2 )
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
