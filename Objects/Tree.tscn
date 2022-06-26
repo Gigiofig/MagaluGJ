@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Resources.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/Avere2.png" type="Texture" id=2]
 [ext_resource path="res://Objects/WoodDrop.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Imagens/Toco.png" type="Texture" id=4]
 [ext_resource path="res://Shaders/wavy.tres" type="Shader" id=5]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -27,6 +28,7 @@ radius = 38.6005
 z_as_relative = false
 script = ExtResource( 1 )
 type = "Wood"
+brokenTexture = ExtResource( 4 )
 drop = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -35,8 +37,8 @@ shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 3 )
-position = Vector2( 0, -157 )
 texture = ExtResource( 2 )
+offset = Vector2( 0, -157 )
 
 [node name="Area2D" type="Area2D" parent="."]
 

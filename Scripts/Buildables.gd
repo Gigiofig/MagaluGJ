@@ -8,6 +8,10 @@ export var isBridge = false
 var isBuilt = false
 export var requirements = [["Wood", 0],["Stone", 0],["RedFlower",0],["PinkFlower",0]]
 
+func _ready():
+	if !isCampfire:
+		$Sprite.texture = altTexture
+
 func Build():
 	if !isBuilt:
 		spriteObj.texture = builtTexture

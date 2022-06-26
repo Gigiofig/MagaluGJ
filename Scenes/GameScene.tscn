@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Imagens/Tilemap/tileset_Tilemap.tres" type="TileSet" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Shaders/WaterShader.tres" type="Shader" id=15]
 [ext_resource path="res://Imagens/Flor2.png" type="Texture" id=16]
 [ext_resource path="res://Imagens/Flor1.png" type="Texture" id=17]
+[ext_resource path="res://Imagens/Pedra.png" type="Texture" id=20]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 15 )
@@ -33,16 +34,30 @@ shader_param/FOAM_COL = Color( 0.8125, 0.9609, 0.9648, 1 )
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 15 )
-shader_param/OCTAVE = 6
-shader_param/mulscale = 15.0
-shader_param/height = 0.3
-shader_param/tide = 0.05
-shader_param/foamthickness = 0.05
-shader_param/timescale = 1.0
-shader_param/waterdeep = 1.0
-shader_param/WATER_COL = Color( 0.379295, 0.446077, 0.595703, 1 )
-shader_param/WATER2_COL = Color( 0.584314, 0.647059, 0.870588, 1 )
+shader_param/OCTAVE = 2
+shader_param/mulscale = 25.0
+shader_param/height = 0.5
+shader_param/tide = 0.1
+shader_param/foamthickness = 0.1
+shader_param/timescale = 1.5
+shader_param/waterdeep = 0.3
+shader_param/WATER_COL = Color( 0.341176, 0.639216, 0.666667, 1 )
+shader_param/WATER2_COL = Color( 0.533333, 0.701961, 0.721569, 1 )
 shader_param/FOAM_COL = Color( 0.839216, 0.858824, 0.92549, 1 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.16568, 0.532544, 0.64497, 0.751479, 0.881657, 1 )
+colors = PoolColorArray( 0.09375, 0.0440969, 0.0223389, 1, 0.246094, 0.13881, 0.0917983, 1, 0.667969, 0.377689, 0.250488, 1, 0.867188, 0.467786, 0.203247, 1, 0.808594, 0.635119, 0.224258, 1, 0.964844, 0.944704, 0.897003, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+width = 10
+
+[sub_resource type="Environment" id=5]
+background_mode = 4
+tonemap_mode = 1
+adjustment_enabled = true
+adjustment_color_correction = SubResource( 4 )
 
 [node name="GameScene" type="Node2D"]
 
@@ -430,6 +445,7 @@ position = Vector2( 84, 1225 )
 
 [node name="Stone6" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 80, 1423 )
+altTexture = ExtResource( 20 )
 
 [node name="Stone7" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 431, 1600 )
@@ -439,36 +455,43 @@ position = Vector2( 886, 1455 )
 
 [node name="Stone9" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 635, 1134 )
+altTexture = ExtResource( 20 )
 
 [node name="Stone10" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 871, 932 )
+altTexture = ExtResource( 20 )
 
 [node name="Stone11" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1403, 796 )
 
 [node name="Stone12" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1290, 1602 )
+altTexture = ExtResource( 20 )
 
 [node name="Stone51" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 984, 1666 )
 
 [node name="Stone52" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1120, 1470 )
+altTexture = ExtResource( 20 )
 
 [node name="Stone53" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 769, 1621 )
+altTexture = ExtResource( 20 )
 
 [node name="Stone54" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 393, 1294 )
 
 [node name="Stone56" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 276, 1113 )
+altTexture = ExtResource( 20 )
 
 [node name="Stone55" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1242, 1373 )
 
 [node name="Stone13" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 397, 824 )
+altTexture = ExtResource( 20 )
 
 [node name="Stone14" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1092, 248 )
@@ -599,12 +622,15 @@ position = Vector2( 2374, 1372 )
 [node name="GrandmaHouse" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 431, 94 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Water" type="Sprite" parent="."]
 material = SubResource( 2 )
-position = Vector2( 365.5, 610.5 )
+position = Vector2( 485, 595 )
 scale = Vector2( 88.1406, 88.1406 )
 z_index = -1
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
