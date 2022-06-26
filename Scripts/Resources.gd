@@ -30,7 +30,6 @@ func _on_Area2D_body_entered(body):
 		body.resourceType = type
 		body.resourceAreaCounter += 1
 		body.currentResource.append(self)
-		print(body.currentResource)
 
 func _on_Area2D_body_exited(body):
 	if "Player" in body.name:
@@ -41,7 +40,6 @@ func _on_Area2D_body_exited(body):
 			body.resourceType = null
 			body.currentResource = []
 		body.currentResource.erase(self)
-		print(body.currentResource)
 
 func IncreaseCounter():
 	counter += 1

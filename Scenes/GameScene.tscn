@@ -110,7 +110,6 @@ adjustment_color_correction = ExtResource( 25 )
 
 [sub_resource type="Animation" id=22]
 resource_name = "FadeIn"
-length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("TileMap:visible")
 tracks/0/interp = 1
@@ -118,7 +117,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.6 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, true ]
@@ -130,8 +129,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.6 ),
-"transitions": PoolRealArray( 4.00001, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.217638, 0.210224 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -142,7 +141,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.9 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, true ]
@@ -154,8 +153,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1.9 ),
-"transitions": PoolRealArray( 9.84915, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 5.85634, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -166,7 +165,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 1.6 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, true ]
@@ -178,8 +177,8 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 1.6 ),
-"transitions": PoolRealArray( 4.14107, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.210225, 0.203063 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -205,7 +204,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0.3, 1 ),
 "transitions": PoolRealArray( 1, 0.164939 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -230,7 +229,7 @@ tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 0.258816 ),
+"transitions": PoolRealArray( 0.138696, 0.258816 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -253,7 +252,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0.3, 1 ),
 "transitions": PoolRealArray( 1, 0.189465 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
