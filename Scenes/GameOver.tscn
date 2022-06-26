@@ -33,3 +33,4 @@ rect_scale = Vector2( 3, 3 )
 size_flags_horizontal = 1
 size_flags_vertical = 1
 text = "Try Again"
+reference_path = "Replay"

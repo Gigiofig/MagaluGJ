@@ -61,7 +61,7 @@ func _physics_process(delta):
 			#Acaba o jogo
 			canMove = false
 			motion = Vector2.ZERO
-			get_tree().change_scene("res://Objects/GrandmaHouse.tscn")
+			get_owner().get_node("AnimationPlayer").play("FadeOut")
 			
 	elif axis == Vector2.ZERO:
 		AnimationPlay("idle")

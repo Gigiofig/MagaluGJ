@@ -1,13 +1,9 @@
 extends Node2D
 
 var isAnimationFinished = false
-#var canStartGame = false
-
-
-func _ready():
-	pass # Replace with function body.
 
 func _input(event):
+	print(isAnimationFinished)
 	if event.is_action_pressed("ui_accept") and isAnimationFinished:
 		$AnimationPlayer.play("PlayGame")
 
