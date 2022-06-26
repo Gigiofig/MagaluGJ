@@ -123,15 +123,15 @@ texture = ExtResource( 3 )
 [node name="PinkFlowerTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
 visible = false
 modulate = Color( 1, 0, 0.937255, 1 )
-margin_left = 110.0
-margin_right = 174.0
+margin_left = 178.0
+margin_right = 242.0
 margin_bottom = 64.0
 texture = ExtResource( 3 )
 
 [node name="PotionTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
 visible = false
-margin_left = 110.0
-margin_right = 110.0
+margin_left = 246.0
+margin_right = 246.0
 margin_bottom = 64.0
 
 [node name="YSort" type="YSort" parent="."]
@@ -205,7 +205,7 @@ position = Vector2( 1480, 1520 )
 position = Vector2( 1588, 1357 )
 
 [node name="Tree7" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 252, 1743 )
+position = Vector2( 0, 8 )
 
 [node name="Tree38" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( -1028, 1677 )

@@ -6,9 +6,13 @@ export (Texture) var altTexture
 export var isCampfire = false
 export var isBridge = false
 var isBuilt = false
+export (PackedScene) var requirementsObj
 export var requirements = [["Wood", 0],["Stone", 0],["RedFlower",0],["PinkFlower",0]]
 
 func _ready():
+	add_child(requirementsObj)
+	requirementsObj.get_node("RockAmount").text = requirements[1][1]
+	requirementsObj.get_node("WoodAmount").text = requirements[0][1]
 	if !isCampfire:
 		$Sprite.texture = altTexture
 
@@ -18,7 +22,8 @@ func Build():
 		isBuilt = true
 		if isCampfire:
 			requirements = [["Wood", 0],["Stone", 0],["RedFlower",1],["PinkFlower",1]]
-			$Requirements.texture = altTexture
+			requirementsObj.get_node("WoodnStone").visible = false
+			requirementsObj.get_node("Flowers").visible = true
 		if isBridge:
 			$StaticBody2D/CollisionShape2D.disabled = true
 			pass

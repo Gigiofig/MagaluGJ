@@ -13,7 +13,6 @@ func _ready():
 	if altTexture != null:
 		$Sprite.texture = altTexture
 		if "Stone" in name:
-			#
 			$CollisionShape2D.shape = load("res://Objects/Colliders/altStoneCollision.tres")
 			$Shadow.scale = Vector2(1.3, 0.8)
 			$Shadow.position = Vector2(3, 18)
