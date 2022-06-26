@@ -33,17 +33,19 @@ func Build():
 			$Requirement/Flowers.visible = true
 		if isBridge:
 			$StaticBody2D/CollisionShape2D.disabled = true
-			for i in get_children():
-				if "Built" in i.name:
-					i.visible = true
-				else:
-					i.visible = false
-			spriteObj.visible = true
 			if vertical:
 				position.y -= 230
 				$StaticBody2D2/CollisionShape2D.disabled = false
 				$StaticBody2D3/CollisionShape2D.disabled = false
 				spriteObj.visible = false
+				
+			for i in get_children():
+				if "Built" in i.name or (i == spriteObj and !vertical):
+					i.visible = true
+					yield(get_tree().create_timer(0.2), "timeout")
+				else:
+					i.visible = false
+
 				
 			
 	elif isBuilt and isCampfire:
