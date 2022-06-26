@@ -34,12 +34,13 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_body_exited(body):
 	if "Player" in body.name:
+		#yield(get_tree().create_timer(1), "timeout")
 		body.resourceAreaCounter -= 1
-		body.currentResource.erase(self)
 		if body.resourceAreaCounter < 1:
 			body.inResourceArea = false
 			body.resourceType = null
 			body.currentResource = []
+		body.currentResource.erase(self)
 		print(body.currentResource)
 
 func IncreaseCounter():

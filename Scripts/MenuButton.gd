@@ -15,6 +15,10 @@ func _ready():
 func _on_Button_pressed():
 	match reference_path:
 		"Play":
-			get_tree().change_scene("res://Scenes/GameScene.tscn")
+			get_owner().get_node("AnimationPlayer").play("StartGame")
+		"Replay":
+			get_tree().change_scene("res://Scenes/TitleScreen.tscn")
+		"Credits":
+			get_tree().change_scene("res://Scenes/TitleScreen.tscn")
 		"Quit":
 			get_tree().quit()

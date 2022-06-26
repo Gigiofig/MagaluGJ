@@ -27,17 +27,17 @@ signal PinkFlowerCollected
 
 #Movement Start
 func _physics_process(delta):
-	time += delta
+	time -= delta
+	slider.value = time 
 	if time > 100:
 		time = 100
 	if time <= 0:
-		pass #Game Over
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
 	var axis = get_input_axis()
 	if Input.is_action_just_pressed("ui_select") and inResourceArea:
 		canMove = false
 		motion = Vector2.ZERO
 		AnimationPlay("collect" + str(resourceType))
-		currentResource.back().Shake()
 		yield(animPlayer, "animation_finished")
 		canMove = true
 	elif Input.is_action_just_pressed("ui_select") and inBuildableArea and (!currentBuildable.isBuilt or currentBuildable.isCampfire):
@@ -98,8 +98,10 @@ func apply_friction(amount):
 
 #Animation Controller
 func AnimationPlay(animation):
-	if "collect" in animation or animation == "build":
+	if ("collect" in animation or animation == "build") and canPlay:
 		canPlay = false
+		if currentResource != []:
+			currentResource.back().Shake()
 		animPlayer.play(animation)
 		currentAnim = animation
 		yield(animPlayer, "animation_finished")
@@ -110,11 +112,11 @@ func AnimationPlay(animation):
 
 #Resource Collection
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if "collect" in anim_name:
+	if "collect" in anim_name and currentResource != []:
 		currentResource.back().IncreaseCounter()
 		if "Wood" in anim_name:
 			time += 5
-		
+
 func Collect(index, type, object):
 	if resources[index][1] < maxResources: 
 		resources[index][1] += 1
