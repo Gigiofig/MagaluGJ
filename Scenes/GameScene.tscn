@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Imagens/Tilemap/tileset_Tilemap.tres" type="TileSet" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Imagens/PonteHBaseFudida.png" type="Texture" id=21]
 [ext_resource path="res://Imagens/PonteHDown.png" type="Texture" id=22]
 [ext_resource path="res://Imagens/PonteFudida.png" type="Texture" id=23]
+[ext_resource path="res://Imagens/Bancadinha.png" type="Texture" id=24]
 
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.66, 0.3234, 0.099, 1 )
@@ -219,7 +220,7 @@ size_flags_vertical = 4
 value = 100.0
 editable = false
 scrollable = false
-tick_count = 25
+tick_count = 10
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -1034,3 +1035,7 @@ __meta__ = {
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
+
+[node name="Bancadinha" type="Sprite" parent="."]
+position = Vector2( 527, 83 )
+texture = ExtResource( 24 )
