@@ -2,10 +2,13 @@ extends Node2D
 
 export var type = ""
 export var index = 0
+export (Texture) var dropTex
 onready var tween = $Tween
 
 
 func _ready():
+	if "Flower" in type:
+		$Sprite.texture = dropTex
 	tween.interpolate_property(self,"position", position, position + Vector2(0,50), 1,Tween.TRANS_BOUNCE,Tween.EASE_OUT)
 	tween.start()
 	yield(get_tree().create_timer(1.2), "timeout")

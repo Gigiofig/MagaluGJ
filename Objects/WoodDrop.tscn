@@ -9,6 +9,7 @@ height = 33.021
 
 [node name="StoneDrop" type="Node2D"]
 script = ExtResource( 1 )
+type = "Wood"
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )

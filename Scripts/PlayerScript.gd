@@ -28,7 +28,7 @@ func _physics_process(delta):
 	var axis = get_input_axis()
 	if Input.is_action_just_pressed("ui_select") and inResourceArea:
 		canMove = false
-		motion = Vector2(0,0)
+		motion = Vector2.ZERO
 		AnimationPlay("collect" + str(resourceType))
 		yield(animPlayer, "animation_finished")
 		canMove = true
