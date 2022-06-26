@@ -1,6 +1,7 @@
 extends Node2D
 
 var isAnimationFinished = false
+#var canStartGame = false
 
 
 func _ready():
@@ -8,7 +9,9 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("ui_accept") and isAnimationFinished:
-		get_tree().change_scene("res://Scenes/GameScene.tscn")
+		$AnimationPlayer.play("PlayGame")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	isAnimationFinished = true
+	if anim_name == "PlayGame":
+		get_tree().change_scene("res://Scenes/GameScene.tscn")
