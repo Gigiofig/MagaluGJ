@@ -17,7 +17,7 @@ var canMove = true
 var maxResources = 20
 var hasPotion = false
 var resources = [["Wood", 0],["Stone", 0],["RedFlower",0],["PinkFlower",0]]
-var time = 100
+var time = 0
 
 signal WoodCollected
 signal StoneCollected
@@ -27,12 +27,9 @@ signal PinkFlowerCollected
 #Movement Start
 func _physics_process(delta):
 	time += delta
-	if time > 100:
-		time = 100
-	if time <= 0:
-		#GameOver
-		pass 
-		
+	if time >= 100:
+		pass
+	print(time)
 	var axis = get_input_axis()
 	if Input.is_action_just_pressed("ui_select") and inResourceArea:
 		canMove = false
@@ -114,7 +111,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if "collect" in anim_name:
 		currentResource.back().IncreaseCounter()
 		if "Wood" in anim_name:
-			time -= 5
+			time -= 10
 			print("foi")
 		
 func Collect(index, type, object):
