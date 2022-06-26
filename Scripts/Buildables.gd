@@ -8,6 +8,8 @@ export var isBridge = false
 var isBuilt = false
 export (PackedScene) var requirementsObj
 export var requirements = [["Wood", 0],["Stone", 0],["RedFlower",0],["PinkFlower",0]]
+export var spriteArray = []
+export var vertical = false
 
 func _ready():
 	add_child(requirementsObj)
@@ -26,7 +28,19 @@ func Build():
 			requirementsObj.get_node("Flowers").visible = true
 		if isBridge:
 			$StaticBody2D/CollisionShape2D.disabled = true
-			pass
+			for i in get_children():
+				if "Built" in i.name:
+					i.visible = true
+				else:
+					i.visible = false
+			spriteObj.visible = true
+			if vertical:
+				position.y -= 230
+				$StaticBody2D2/CollisionShape2D.disabled = false
+				$StaticBody2D3/CollisionShape2D.disabled = false
+				spriteObj.visible = false
+				
+			
 	elif isBuilt and isCampfire:
 		get_owner().get_node("CanvasLayer/Control").Potion_Built()
 		isCampfire = false

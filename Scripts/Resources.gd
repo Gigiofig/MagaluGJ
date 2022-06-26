@@ -41,11 +41,14 @@ func IncreaseCounter():
 	counter += 1
 	if counter >= maxCounter:
 		Destroy(type)
+	elif counter == 3:
+		Drop(type)
+	
+	
 
-func Destroy(resourceType):
+func Drop(resourceType):
 	var drop_instance = drop.instance()
 	drop_instance.type = resourceType
-	isDestroyed = true
 	if type == "Wood":
 		drop_instance.index = 0
 	elif type == "Stone":
@@ -53,13 +56,17 @@ func Destroy(resourceType):
 	drop_instance.position = position - Vector2(0,20)
 #	get_owner().get_node("YSort/Player").currentResource.erase(self)
 	get_parent().add_child(drop_instance)
+
+func Destroy(resourceType):
+	isDestroyed = true
+	Drop(resourceType)
 	$Sprite.texture = brokenTexture
 	$Sprite.material = null
 	if type == "Wood":
 		$Sprite.position = Vector2(0,137)
 		$Shadow.scale = Vector2(0.3,0.3)
+		$CollisionShape2D.scale = Vector2(0.4, 0.4)
 	else:
-		$CollisionShape2D.queue_free()
-		$AltCollisionShape2D.queue_free()
 		$Shadow.queue_free()
+		$CollisionShape2D.queue_free()
 	$Area2D.queue_free()
