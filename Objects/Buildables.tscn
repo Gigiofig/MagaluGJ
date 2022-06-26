@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Buildables.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/FogueiraLenha.png" type="Texture" id=2]
@@ -10,11 +10,28 @@ extents = Vector2( 26.5, 13 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 48, 42 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 0.768627, 0.0862745, 0, 1, 1, 0.733333, 0.290196, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+width = 8
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 2
+emission_box_extents = Vector3( 15, 6.8, 1 )
 flag_disable_z = true
-gravity = Vector3( 0, 98, 0 )
+gravity = Vector3( 0, -98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+radial_accel = -35.37
+tangential_accel = 17.68
+scale = 3.0
+scale_random = 1.0
+color_ramp = SubResource( 7 )
 
 [node name="Buildables" type="Node2D"]
 z_as_relative = false
@@ -26,7 +43,7 @@ texture = ExtResource( 2 )
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 0.5, 19 )
+position = Vector2( 1, 19 )
 shape = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -35,13 +52,17 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
-visible = false
-process_material = SubResource( 3 )
-
 [node name="Requirement" parent="." instance=ExtResource( 3 )]
+visible = false
 margin_top = -106.0
 margin_bottom = -106.0
+
+[node name="Particles2D" type="Particles2D" parent="."]
+material = SubResource( 5 )
+position = Vector2( 0, 17 )
+emitting = false
+amount = 39
+process_material = SubResource( 8 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

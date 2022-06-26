@@ -9,6 +9,7 @@ var smallCollisionShape
 var counter = 0
 var isDestroyed = false
 export var maxCounter = 1
+onready var particles = load("res://Objects/DestroyParticle.tscn")
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -42,6 +43,8 @@ func _on_Area2D_body_exited(body):
 		body.currentResource.erase(self)
 
 func IncreaseCounter():
+	var particles_instace = particles.instance()
+	add_child(particles_instace)
 	counter += 1
 	if counter >= maxCounter:
 		Destroy(type)

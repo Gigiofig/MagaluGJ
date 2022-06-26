@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Imagens/Tilemap/tileset_Tilemap.tres" type="TileSet" id=2]
@@ -7,8 +7,8 @@
 [ext_resource path="res://Scripts/Counter.gd" type="Script" id=5]
 [ext_resource path="res://Objects/GrandmaHouse.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Buildables.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Vela1.png" type="Texture" id=8]
-[ext_resource path="res://Vela2.png" type="Texture" id=9]
+[ext_resource path="res://Imagens/FogueiraCentral2.png" type="Texture" id=8]
+[ext_resource path="res://Imagens/FogueiraCentral1.png" type="Texture" id=9]
 [ext_resource path="res://Objects/Tree.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Stone.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Imagens/PedraRes.png" type="Texture" id=12]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Theme/PANEL.tres" type="StyleBox" id=28]
 [ext_resource path="res://Theme/THEME.tres" type="Theme" id=29]
 [ext_resource path="res://Imagens/light.png" type="Texture" id=30]
+[ext_resource path="res://Imagens/FogueiraCentral3.png" type="Texture" id=31]
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.396078, 0.101961, 0.101961, 1 )
@@ -483,6 +484,10 @@ builtTexture = ExtResource( 8 )
 altTexture = ExtResource( 9 )
 isCampfire = true
 requirements = [ [ "Wood", 3 ], [ "Stone", 3 ], [ "RedFlower", 0 ], [ "PinkFlower", 0 ] ]
+
+[node name="Sprite2" type="Sprite" parent="YSort/Fogueira"]
+position = Vector2( 0, -6 )
+texture = ExtResource( 31 )
 
 [node name="Ponte1" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 2448, 908 )
