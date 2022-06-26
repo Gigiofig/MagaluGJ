@@ -1,14 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Imagens/PedraRes.png" type="Texture" id=1]
 [ext_resource path="res://Imagens/Flor2.png" type="Texture" id=2]
 [ext_resource path="res://Imagens/FogueiraLenhaReduzida.png" type="Texture" id=3]
 [ext_resource path="res://Imagens/Flor1.png" type="Texture" id=4]
-
-[sub_resource type="GDScript" id=3]
-script/source = "extends Control
-
-"
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.5, 0.3965, 0.23, 1 )
@@ -39,28 +34,49 @@ shadow_color = Color( 0.164706, 0.00784314, 0.00784314, 1 )
 shadow_size = 5
 
 [node name="Requirement" type="Control"]
-anchor_right = 0.125
-anchor_bottom = 0.079
-margin_top = 1.0
-margin_bottom = 0.183998
-script = SubResource( 3 )
+margin_left = -68.0
+margin_top = -24.0
+margin_right = -68.0
+margin_bottom = -24.0
+rect_pivot_offset = Vector2( 68, 24 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [node name="WoodnStone" type="Panel" parent="."]
-margin_top = -2.0
-margin_right = 134.0
-margin_bottom = 48.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 136.0
+margin_bottom = 50.0
+rect_pivot_offset = Vector2( 68, 25 )
 custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="WoodnStone"]
-margin_right = 133.0
-margin_bottom = 50.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -67.0
+margin_top = -25.0
+margin_right = 66.0
+margin_bottom = 25.0
 custom_constants/separation = 36
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TextureRec2" type="TextureRect" parent="WoodnStone/HBoxContainer"]
 margin_right = 32.0
 margin_bottom = 50.0
 texture = ExtResource( 1 )
 stretch_mode = 4
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="RockAmount" type="Label" parent="WoodnStone/HBoxContainer/TextureRec2"]
 margin_left = 42.0
@@ -78,6 +94,9 @@ margin_right = 116.0
 margin_bottom = 50.0
 texture = ExtResource( 3 )
 stretch_mode = 4
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="WoodAmount" type="Label" parent="WoodnStone/HBoxContainer/TextureRec"]
 margin_left = 54.0
@@ -91,19 +110,30 @@ valign = 1
 
 [node name="Flowers" type="Panel" parent="."]
 visible = false
-margin_right = 119.0
-margin_bottom = 62.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 9.0
+margin_top = -8.0
+margin_right = 127.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 59, 32 )
 custom_styles/panel = SubResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Flowers"]
 margin_right = 132.0
 margin_bottom = 64.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TextureRec2" type="TextureRect" parent="Flowers/HBoxContainer"]
 margin_right = 64.0
 margin_bottom = 64.0
 texture = ExtResource( 4 )
 stretch_mode = 4
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TextureRec" type="TextureRect" parent="Flowers/HBoxContainer"]
 margin_left = 68.0
@@ -111,3 +141,6 @@ margin_right = 132.0
 margin_bottom = 64.0
 texture = ExtResource( 2 )
 stretch_mode = 4
+__meta__ = {
+"_edit_lock_": true
+}

@@ -145,7 +145,7 @@ margin_bottom = 64.0
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( -183, -231 )
+position = Vector2( 440, 176 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
@@ -457,7 +457,7 @@ position = Vector2( 1594, -354 )
 maxCounter = 3
 
 [node name="Tree74" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( 1594, -354 )
+position = Vector2( 1988, -80 )
 maxCounter = 3
 
 [node name="Tree10" parent="YSort" instance=ExtResource( 10 )]

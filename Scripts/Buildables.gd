@@ -1,20 +1,24 @@
 extends Node2D
 
 onready var spriteObj = $Sprite
+onready var requirementsObj = $Requirement
+var isBuilt = false
+var tween
+var targetPanel
 export (Texture) var builtTexture
 export (Texture) var altTexture
 export var isCampfire = false
 export var isBridge = false
-var isBuilt = false
-export (PackedScene) var requirementsObj
 export var requirements = [["Wood", 0],["Stone", 0],["RedFlower",0],["PinkFlower",0]]
 export var spriteArray = []
 export var vertical = false
 
+
 func _ready():
-	add_child(requirementsObj)
-	requirementsObj.get_node("RockAmount").text = requirements[1][1]
-	requirementsObj.get_node("WoodAmount").text = requirements[0][1]
+	targetPanel = $Requirement/WoodnStone
+	tween = $Requirement/Tween
+	$Requirement/WoodnStone/HBoxContainer/TextureRec2/RockAmount.text = str(requirements[1][1])
+	$Requirement/WoodnStone/HBoxContainer/TextureRec/WoodAmount.text = str(requirements[0][1])
 	if !isCampfire:
 		$Sprite.texture = altTexture
 
@@ -24,8 +28,9 @@ func Build():
 		isBuilt = true
 		if isCampfire:
 			requirements = [["Wood", 0],["Stone", 0],["RedFlower",1],["PinkFlower",1]]
-			requirementsObj.get_node("WoodnStone").visible = false
-			requirementsObj.get_node("Flowers").visible = true
+			targetPanel = $Requirement/Flowers
+			$Requirement/WoodnStone.visible = false
+			$Requirement/Flowers.visible = true
 		if isBridge:
 			$StaticBody2D/CollisionShape2D.disabled = true
 			for i in get_children():
@@ -45,18 +50,29 @@ func Build():
 		get_owner().get_node("CanvasLayer/Control").Potion_Built()
 		isCampfire = false
 
+func TweenIn():
+	tween.interpolate_property(targetPanel,"rect_scale",Vector2(0.7,0.7),Vector2(1,1),0.5,Tween.TRANS_QUART,Tween.EASE_IN_OUT)
+	tween.start()
+
+func TweenOut():
+	tween.interpolate_property(targetPanel,"rect_scale",Vector2(1,1),Vector2(0.3,0.3),0.5,Tween.TRANS_QUART,Tween.EASE_IN_OUT)
+	tween.start()
+
 func _on_Area2D_body_entered(body):
 	if !isBuilt and "Player" in body.name:
-		$Requirements.visible = true
+		$Requirement.visible = true
+		TweenIn()
 		body.inBuildableArea = true
 		body.currentBuildable = self
 	if isBuilt and "Player" in body.name and isCampfire:
-		$Requirements.visible = true
+		$Requirement.visible = true
+		TweenIn()
 		body.inBuildableArea = true
 		body.currentBuildable = self
 
 func _on_Area2D_body_exited(body):
 	if "Player" in body.name:
-		$Requirements.visible = false
+		TweenOut()
+		$Requirement.visible = false
 		body.inBuildableArea = false
 		body.currentBuildable = null
