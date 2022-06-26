@@ -10,7 +10,6 @@ func _ready():
 	playerNode.connect("RedFlowerCollected", self, "on_RedFlower_Collected")
 	playerNode.connect("PinkFlowerCollected", self, "on_PinkFlower_Collected")
 
-
 func on_Wood_Collected():
 	$HBoxContainer/WoodCounter.text = str(playerNode.resources[0][1])
 

@@ -1,14 +1,14 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Objects/Button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Vela2.png" type="Texture" id=3]
+[ext_resource path="res://Imagens/FogueiraCentral1.png" type="Texture" id=3]
 [ext_resource path="res://Shaders/WaterShader.tres" type="Shader" id=4]
 [ext_resource path="res://Objects/Buildables.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Imagens/Tilemap/tileset_Tilemap.tres" type="TileSet" id=6]
 [ext_resource path="res://Objects/Tree.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Stone.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Vela1.png" type="Texture" id=9]
+[ext_resource path="res://Imagens/FogueiraCentral2.png" type="Texture" id=9]
 [ext_resource path="res://Imagens/Flor2.png" type="Texture" id=10]
 [ext_resource path="res://Imagens/Bancadinha.png" type="Texture" id=11]
 [ext_resource path="res://Imagens/Pedra.png" type="Texture" id=12]
@@ -21,29 +21,19 @@
 [ext_resource path="res://Theme/SMALL_Pressed.tres" type="StyleBox" id=19]
 [ext_resource path="res://Theme/SMALL_Hover.tres" type="StyleBox" id=20]
 [ext_resource path="res://Theme/SMALL_std.tres" type="StyleBox" id=21]
+[ext_resource path="res://Objects/InitialCutscene.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Imagens/FogueiraCentral3.png" type="Texture" id=23]
 [ext_resource path="res://Theme/THEME.tres" type="Theme" id=25]
 
 [sub_resource type="Animation" id=15]
 resource_name = "PlayGame"
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
 
 [sub_resource type="Animation" id=17]
 length = 0.001
 
 [sub_resource type="Animation" id=16]
 resource_name = "StartGame"
-length = 2.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Node2D:visible")
 tracks/0/interp = 1
@@ -57,43 +47,43 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:visible")
+tracks/1/path = NodePath("Node2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Node2D:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0.2, 1.1 ),
 "transitions": PoolRealArray( 0.31864, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D/Water:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/path = NodePath("Node2D/Water:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 1.1, 2 ),
-"transitions": PoolRealArray( 1.51571, 3.24901 ),
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 0.0915054, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("WorldEnvironment:environment:adjustment_color_correction")
+tracks/4/path = NodePath("Sprite:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -102,31 +92,55 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 1.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 18 ), null ]
+"values": [ false, true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Node2D/Water:visible")
+tracks/5/path = NodePath("Sprite:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 1.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, true ]
+"times": PoolRealArray( 1.1, 2 ),
+"transitions": PoolRealArray( 5.09824, 8.28211 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Node2D/Water:modulate")
+tracks/6/path = NodePath("Node2D/Camera:zoom")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0, 1.1 ),
-"transitions": PoolRealArray( 0.0915054, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Node2D/Camera:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 448, 60 ), Vector2( 448, 251 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Sprite/Control/Panel/Label:percent_visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
 }
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -232,6 +246,10 @@ builtTexture = ExtResource( 9 )
 altTexture = ExtResource( 3 )
 isCampfire = true
 requirements = [ [ "Wood", 3 ], [ "Stone", 3 ], [ "RedFlower", 0 ], [ "PinkFlower", 0 ] ]
+
+[node name="Sprite2" type="Sprite" parent="Node2D/Fogueira"]
+position = Vector2( 0, -6 )
+texture = ExtResource( 23 )
 
 [node name="Tree68" parent="Node2D" instance=ExtResource( 7 )]
 position = Vector2( 648, 367 )
@@ -446,17 +464,18 @@ position = Vector2( 1295, 119 )
 altTexture = ExtResource( 12 )
 maxCounter = 5
 
-[node name="Camera2D" type="Camera2D" parent="Node2D"]
-position = Vector2( 500, 150 )
+[node name="Camera" type="Camera2D" parent="Node2D"]
+position = Vector2( 448, 60 )
 current = true
 zoom = Vector2( 2, 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" parent="." instance=ExtResource( 22 )]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 427.5, 159 )
-scale = Vector2( 24.1094, 14.9688 )
-texture = ExtResource( 2 )
+modulate = Color( 1, 1, 1, 0.000467483 )
+position = Vector2( 2, -8 )
+
+[node name="Label" parent="Sprite/Control/Panel" index="0"]
+percent_visible = 0.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 18 )
@@ -465,3 +484,5 @@ __meta__ = {
 }
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+[editable path="Sprite"]

@@ -1,10 +1,10 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://Vela2.png" type="Texture" id=1]
+[ext_resource path="res://Imagens/FogueiraCentral1.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://environment_gradient_texture.tres" type="Texture" id=3]
 [ext_resource path="res://Shaders/WaterShader.tres" type="Shader" id=4]
-[ext_resource path="res://Vela1.png" type="Texture" id=5]
+[ext_resource path="res://Imagens/FogueiraCentral2.png" type="Texture" id=5]
 [ext_resource path="res://Imagens/Flor2.png" type="Texture" id=6]
 [ext_resource path="res://Imagens/Bancadinha.png" type="Texture" id=7]
 [ext_resource path="res://Imagens/Pedra.png" type="Texture" id=8]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Objects/Artie.tscn" type="PackedScene" id=19]
 [ext_resource path="res://TitanOne-Regular.ttf" type="DynamicFontData" id=20]
 [ext_resource path="res://Theme/THEME.tres" type="Theme" id=21]
+[ext_resource path="res://Imagens/FogueiraCentral3.png" type="Texture" id=22]
 
 [sub_resource type="Animation" id=1]
 resource_name = "PlayGame"
@@ -179,6 +180,10 @@ altTexture = ExtResource( 1 )
 isCampfire = true
 requirements = [ [ "Wood", 3 ], [ "Stone", 3 ], [ "RedFlower", 0 ], [ "PinkFlower", 0 ] ]
 
+[node name="Sprite2" type="Sprite" parent="Node2D/Fogueira"]
+position = Vector2( 0, -6 )
+texture = ExtResource( 22 )
+
 [node name="Tree68" parent="Node2D" instance=ExtResource( 17 )]
 position = Vector2( 648, 367 )
 maxCounter = 3
@@ -195,6 +200,9 @@ maxCounter = 5
 
 [node name="GrandmaHouse" parent="Node2D" instance=ExtResource( 9 )]
 position = Vector2( 431, 376 )
+
+[node name="Muriel" parent="Node2D/GrandmaHouse" index="2"]
+visible = false
 
 [node name="Stone29" parent="Node2D" instance=ExtResource( 16 )]
 position = Vector2( 537, 30 )
@@ -388,3 +396,5 @@ position = Vector2( 533, 426 )
 [node name="Artie" parent="." instance=ExtResource( 19 )]
 position = Vector2( 276, 429 )
 flip_h = true
+
+[editable path="Node2D/GrandmaHouse"]

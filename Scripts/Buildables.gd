@@ -2,7 +2,7 @@ extends Node2D
 
 onready var spriteObj = $Sprite
 onready var requirementsObj = $Requirement
-var isBuilt = false
+export var isBuilt = false
 var tween
 var targetPanel
 export (Texture) var builtTexture
