@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Imagens/Tilemap/tileset_Tilemap.tres" type="TileSet" id=2]
@@ -23,6 +23,33 @@
 [ext_resource path="res://Imagens/PonteHBaseFudida.png" type="Texture" id=21]
 [ext_resource path="res://Imagens/PonteHDown.png" type="Texture" id=22]
 [ext_resource path="res://Imagens/PonteFudida.png" type="Texture" id=23]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.66, 0.3234, 0.099, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.3, 0.1064, 0.036, 1 )
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.396078, 0.101961, 0.101961, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.52, 0.0312, 0.0312, 1 )
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 15 )
@@ -89,58 +116,77 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
 margin_left = 25.0
-margin_top = 22.0
-margin_right = 267.0
-margin_bottom = 86.0
+margin_top = 25.0
+margin_right = 152.0
+margin_bottom = 66.0
+custom_styles/panel = SubResource( 8 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+margin_left = 36.0
+margin_top = 29.0
+margin_right = 142.0
+margin_bottom = 61.0
 
 [node name="WoodTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
 margin_right = 46.0
-margin_bottom = 64.0
+margin_bottom = 32.0
 texture = ExtResource( 14 )
 stretch_mode = 4
 
 [node name="WoodCounter" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
 margin_left = 50.0
-margin_top = 25.0
+margin_top = 9.0
 margin_right = 58.0
-margin_bottom = 39.0
+margin_bottom = 23.0
 text = "0"
 
 [node name="StoneTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
 margin_left = 62.0
 margin_right = 94.0
-margin_bottom = 64.0
+margin_bottom = 32.0
 texture = ExtResource( 12 )
 stretch_mode = 4
 
 [node name="StoneCounter" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
 margin_left = 98.0
-margin_top = 25.0
+margin_top = 9.0
 margin_right = 106.0
-margin_bottom = 39.0
+margin_bottom = 23.0
 text = "0"
 
-[node name="RedFlowerTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="Panel2" type="Panel" parent="CanvasLayer/Control"]
 visible = false
-margin_left = 110.0
-margin_right = 174.0
+margin_left = 730.0
+margin_top = 17.0
+margin_right = 865.0
+margin_bottom = 90.0
+custom_styles/panel = SubResource( 9 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control"]
+margin_left = 740.0
+margin_top = 22.0
+margin_right = 872.0
+margin_bottom = 86.0
+
+[node name="RedFlowerTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer2"]
+margin_right = 64.0
 margin_bottom = 64.0
 texture = ExtResource( 17 )
 
-[node name="PinkFlowerTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
-visible = false
-margin_left = 110.0
-margin_right = 174.0
+[node name="PinkFlowerTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer2"]
+margin_left = 68.0
+margin_right = 132.0
 margin_bottom = 64.0
 texture = ExtResource( 16 )
 
-[node name="PotionTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="PotionTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer2"]
 visible = false
-margin_left = 110.0
-margin_right = 110.0
+margin_left = 136.0
+margin_right = 200.0
 margin_bottom = 64.0
+texture = ExtResource( 3 )
 
 [node name="YSort" type="YSort" parent="."]
 

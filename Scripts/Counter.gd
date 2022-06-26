@@ -18,9 +18,11 @@ func on_Stone_Collected():
 	$HBoxContainer/StoneCounter.text = str(playerNode.resources[1][1])
 
 func on_RedFlower_Collected():
+	$Panel2.visible = true
 	$HBoxContainer/RedFlowerTexture.visible = true
 
 func on_PinkFlower_Collected():
+	$Panel2.visible = true
 	$HBoxContainer/PinkFlowerTexture.visible = true
 	
 func Potion_Built():
