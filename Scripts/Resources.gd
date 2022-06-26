@@ -8,6 +8,7 @@ var smallStoneSprite
 var smallCollisionShape
 var counter = 0
 var isDestroyed = false
+var lastPos
 export var maxCounter = 1
 onready var particles = load("res://Objects/DestroyParticle.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -24,6 +25,7 @@ func _ready():
 			$Sprite.position = Vector2(0, -20)
 			
 		$Sprite.texture = altTexture
+	lastPos = position.x
 
 func _on_Area2D_body_entered(body):
 	if "Player" in body.name and !isDestroyed:
@@ -57,21 +59,19 @@ func IncreaseCounter():
 			$Sprite.position = Vector2(0, 0)
 			$Sprite.texture = smallStoneSprite
 		Drop(type)
-	
+
 func Shake(type):
-	var lastPos = position.x
-	var duration
-	if "Wood" in type:
-		duration = 0.03
-	else:
-		duration = 0.05
-		
-	for i in range(10):
-		position.x += 1
-		yield(get_tree().create_timer(duration), "timeout")
-		position.x -= 2
-		yield(get_tree().create_timer(duration), "timeout")
-		position.x = lastPos
+#	var duration
+#	if "Wood" in type:
+#		duration = 0.03
+#	else:
+#		duration = 0.05
+#	for i in range(10):
+	position.x += 1
+	yield(get_tree().create_timer(0.05), "timeout")
+	position.x -= 2
+	yield(get_tree().create_timer(0.05), "timeout")
+	position.x = lastPos
 #	else:
 #		for i in range(10):
 #			position.x += 1

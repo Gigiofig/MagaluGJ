@@ -27,6 +27,8 @@ func Build():
 		spriteObj.texture = builtTexture
 		isBuilt = true
 		if isCampfire:
+			var particles_instance = particles.instance()
+			add_child(particles_instance)
 			$Particles2D.emitting = true
 			requirements = [["Wood", 0],["Stone", 0],["RedFlower",1],["PinkFlower",1]]
 			targetPanel = $Requirement/Flowers

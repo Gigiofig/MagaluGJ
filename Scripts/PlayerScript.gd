@@ -27,6 +27,9 @@ signal PinkFlowerCollected
 
 #Movement Start
 func _physics_process(delta):
+	if $Hit.is_playing():
+		if currentResource != []:
+			currentResource.back().Shake(str(resourceType))
 	time -= delta
 	slider.value = time 
 	if time > 100:
@@ -52,10 +55,20 @@ func _physics_process(delta):
 			resources[1][1] -= currentBuildable.requirements[1][1]
 			resources[2][1] -= currentBuildable.requirements[2][1]
 			resources[3][1] -= currentBuildable.requirements[3][1]
-			AnimationPlay("build")
-			yield(animPlayer, "animation_finished")
-			currentBuildable.Build()
+			emit_signal("StoneCollected")
+			emit_signal("WoodCollected")
+			if currentBuildable.isBridge:
+				currentBuildable.Build()
+				AnimationPlay("collectStone")
+				yield(animPlayer, "animation_finished")
+				AnimationPlay("build")
+				yield(animPlayer, "animation_finished")
+			elif !currentBuildable.isBuilt or currentBuildable.isCampfire:
+				AnimationPlay("build")
+				yield(animPlayer, "animation_finished")
+				currentBuildable.Build()
 			canMove = true
+			
 	elif Input.is_action_just_pressed("ui_select") and inHouseArea:
 		if hasPotion:
 			#Acaba o jogo
@@ -100,8 +113,8 @@ func apply_friction(amount):
 func AnimationPlay(animation):
 	if ("collect" in animation or animation == "build") and canPlay:
 		canPlay = false
-		if currentResource != []:
-			currentResource.back().Shake(str(resourceType))
+#		if currentResource != []:
+#			currentResource.back().Shake(str(resourceType))
 		animPlayer.play(animation)
 		currentAnim = animation
 		yield(animPlayer, "animation_finished")
