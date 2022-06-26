@@ -19,16 +19,16 @@ func on_Stone_Collected():
 
 func on_RedFlower_Collected():
 	$Panel2.visible = true
-	$HBoxContainer/RedFlowerTexture.visible = true
+	$HBoxContainer2/RedFlowerTexture.visible = true
 
 func on_PinkFlower_Collected():
 	$Panel2.visible = true
-	$HBoxContainer/PinkFlowerTexture.visible = true
+	$HBoxContainer2/PinkFlowerTexture.visible = true
 	
 func Potion_Built():
-	$HBoxContainer/RedFlowerTexture.visible = false
-	$HBoxContainer/PinkFlowerTexture.visible = false
-	$HBoxContainer/PotionTexture.visible = true
+	$HBoxContainer2/RedFlowerTexture.visible = false
+	$HBoxContainer2/PinkFlowerTexture.visible = false
+	$HBoxContainer2/PotionTexture.visible = true
 	playerNode.hasPotion = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

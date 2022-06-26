@@ -46,11 +46,10 @@ func Build():
 				else:
 					i.visible = false
 
-				
-			
 	elif isBuilt and isCampfire:
 		get_owner().get_node("CanvasLayer/Control").Potion_Built()
 		isCampfire = false
+		$Requirement/Flowers.visible = false
 
 func TweenIn():
 	tween.interpolate_property(targetPanel,"rect_scale",Vector2(0.7,0.7),Vector2(1,1),0.5,Tween.TRANS_QUART,Tween.EASE_IN_OUT)
