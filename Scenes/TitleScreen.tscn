@@ -1,7 +1,149 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Objects/Button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.890196, 0.627451, 0.168627, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.580392, 0.305882, 0.0509804, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color( 1, 0.580392, 0.0313726, 0.788235 )
+shadow_size = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.678431, 0.486275, 0.14902, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.109804, 0.0784314, 0.027451, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color( 0.658824, 0.47451, 0.156863, 0.788235 )
+shadow_size = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.65098, 0.458824, 0.121569, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.321569, 0.168627, 0.027451, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color( 1, 0.611765, 0.101961, 0.788235 )
+shadow_size = 5
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.211765, 0.0901961, 0.027451, 1 )
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color( 0.14902, 0.0627451, 0.0196078, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color( 0.109804, 0.0196078, 0.0117647, 1 )
+shadow_size = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.31, 0.155, 0.0775, 1 )
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color( 0.22, 0.0924, 0.0286, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color( 0.22, 0.0969833, 0.0858, 1 )
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.541176, 0.231373, 0.0745098, 1 )
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color( 0.301961, 0.129412, 0.0431373, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color( 0.239216, 0.0784314, 0.0627451, 1 )
+shadow_size = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.36, 0.18444, 0.0828, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.109804, 0.0666667, 0.0352941, 1 )
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color( 0.54902, 0.427451, 0.215686, 0.6 )
+shadow_size = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.2, 0.110067, 0.058, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.11, 0.084975, 0.0671, 1 )
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color( 0.141176, 0.0823529, 0, 0.796078 )
+shadow_size = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.321569, 0.172549, 0.0666667, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.168627, 0.0784314, 0.0196078, 1 )
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color( 0.168627, 0.113725, 0.0156863, 0.6 )
+shadow_size = 4
 
 [node name="Node2D" type="Node2D"]
 
@@ -19,6 +161,24 @@ margin_left = 392.0
 margin_top = 319.0
 margin_right = 509.0
 margin_bottom = 368.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="CreditsBtn" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 40.0
+margin_top = 427.0
+margin_right = 157.0
+margin_bottom = 476.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 8 )
+text = "Credits"
+reference_path = "Credits"
 
 [node name="QuitBtn" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.5
@@ -29,5 +189,8 @@ margin_left = 404.0
 margin_top = 373.0
 margin_right = 497.0
 margin_bottom = 408.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 4 )
 text = "Quit"
 reference_path = "Quit"

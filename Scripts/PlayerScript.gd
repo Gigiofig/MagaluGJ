@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var animPlayer = $AnimationPlayer
+onready var slider = get_owner().get_node("CanvasLayer/Control/Panel3/VSlider")
 export var MAX_SPEED = 200
 export var ACCELERATION = 2000
 var canPlay = true
@@ -30,9 +31,7 @@ func _physics_process(delta):
 	if time > 100:
 		time = 100
 	if time <= 0:
-		#GameOver
-		pass 
-		
+		pass #Game Over
 	var axis = get_input_axis()
 	if Input.is_action_just_pressed("ui_select") and inResourceArea:
 		canMove = false
@@ -114,7 +113,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if "collect" in anim_name:
 		currentResource.back().IncreaseCounter()
 		if "Wood" in anim_name:
-			time -= 5
+			time -= 10
 			print("foi")
 		
 func Collect(index, type, object):
