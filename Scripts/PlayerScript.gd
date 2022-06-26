@@ -113,8 +113,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if "collect" in anim_name:
 		currentResource.back().IncreaseCounter()
 		if "Wood" in anim_name:
-			time -= 10
-			print("foi")
+			time += 5
 		
 func Collect(index, type, object):
 	if resources[index][1] < maxResources: 
