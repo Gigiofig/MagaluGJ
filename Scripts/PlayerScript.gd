@@ -54,6 +54,8 @@ func _physics_process(delta):
 			resources[3][1] -= currentBuildable.requirements[3][1]
 			AnimationPlay("build")
 			yield(animPlayer, "animation_finished")
+			emit_signal("StoneCollected")
+			emit_signal("WoodCollected")
 			currentBuildable.Build()
 			canMove = true
 	elif Input.is_action_just_pressed("ui_select") and inHouseArea:
