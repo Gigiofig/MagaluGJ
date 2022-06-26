@@ -46,7 +46,11 @@ func Destroy(resourceType):
 	get_owner().get_node("YSort/Player").currentResource.erase(self)
 	print(get_owner().get_node("YSort/Player").currentResource.erase(self))
 	get_parent().add_child(drop_instance)
-	$CollisionShape2D.queue_free()
 	$Sprite.texture = brokenTexture
 	$Sprite.material = null
-	$Sprite.position = Vector2(137,0)
+	if type == "Wood":
+		$Sprite.position = Vector2(0,137)
+		$Shadow.scale = Vector2(0.3,0.3)
+	else:
+		$CollisionShape2D.queue_free()
+		$Shadow.queue_free()

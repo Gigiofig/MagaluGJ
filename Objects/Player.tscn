@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/PlayerScript.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/Artie.png" type="Texture" id=2]
+[ext_resource path="res://Imagens/Sombra.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 15, 10.5 )
@@ -146,6 +147,11 @@ position = Vector2( 0, -37 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Playerarea"]
 position = Vector2( 1, 5 )
 shape = SubResource( 12 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 0, 7 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -37 )

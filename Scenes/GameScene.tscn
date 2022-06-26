@@ -34,7 +34,6 @@ shader_param/FOAM_COL = Color( 0.8125, 0.9609, 0.9648, 1 )
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 15 )
-
 shader_param/OCTAVE = 6
 shader_param/mulscale = 50.0
 shader_param/height = 0.3
@@ -640,4 +639,3 @@ __meta__ = {
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
-
