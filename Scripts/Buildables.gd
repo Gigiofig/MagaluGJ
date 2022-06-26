@@ -15,6 +15,8 @@ export var vertical = false
 onready var particles = load("res://Objects/BuildParticle.tscn")
 
 func _ready():
+	if isBuilt:
+		$Particles2D.emitting = true
 	targetPanel = $Requirement/WoodnStone
 	tween = $Requirement/Tween
 	$Requirement/WoodnStone/HBoxContainer/TextureRec2/RockAmount.text = str(requirements[1][1])

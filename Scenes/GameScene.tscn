@@ -11,7 +11,7 @@
 [ext_resource path="res://Imagens/FogueiraCentral1.png" type="Texture" id=9]
 [ext_resource path="res://Objects/Tree.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Stone.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Imagens/PedraRes.png" type="Texture" id=12]
+[ext_resource path="res://Imagens/PedraResMuitaReduzida.png" type="Texture" id=12]
 [ext_resource path="res://Imagens/Avere.png" type="Texture" id=13]
 [ext_resource path="res://Imagens/MadeiraRes.png" type="Texture" id=14]
 [ext_resource path="res://Shaders/WaterShader.tres" type="Shader" id=15]
@@ -35,12 +35,12 @@
 [ext_resource path="res://Imagens/FogueiraLenhaReduzida.png" type="Texture" id=33]
 
 [sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 0.396078, 0.101961, 0.101961, 1 )
+bg_color = Color( 0.658824, 0.321569, 0.0980392, 1 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.52, 0.0312, 0.0312, 1 )
+border_color = Color( 0.521569, 0.0313726, 0.0313726, 1 )
 border_blend = true
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -366,46 +366,46 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="CanvasLayer/Control"]
 margin_left = 25.0
 margin_top = 23.0
-margin_right = 185.0
+margin_right = 207.0
 margin_bottom = 71.0
 mouse_filter = 2
 custom_styles/panel = ExtResource( 28 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
 margin_left = 36.0
-margin_top = 29.0
-margin_right = 142.0
-margin_bottom = 61.0
+margin_top = 14.0
+margin_right = 208.0
+margin_bottom = 78.0
 mouse_filter = 2
 
 [node name="WoodTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
 margin_right = 48.0
-margin_bottom = 36.0
+margin_bottom = 64.0
 mouse_filter = 2
 texture = ExtResource( 33 )
 stretch_mode = 4
 
 [node name="WoodCounter" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
 margin_left = 52.0
-margin_top = 8.0
-margin_right = 76.0
-margin_bottom = 27.0
+margin_top = 22.0
+margin_right = 87.0
+margin_bottom = 41.0
 size_flags_horizontal = 7
 text = "00"
 
 [node name="StoneTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
-margin_left = 80.0
-margin_right = 112.0
-margin_bottom = 36.0
+margin_left = 91.0
+margin_right = 132.0
+margin_bottom = 64.0
 mouse_filter = 2
 texture = ExtResource( 12 )
 stretch_mode = 4
 
 [node name="StoneCounter" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
-margin_left = 116.0
-margin_top = 8.0
-margin_right = 140.0
-margin_bottom = 27.0
+margin_left = 136.0
+margin_top = 22.0
+margin_right = 172.0
+margin_bottom = 41.0
 size_flags_horizontal = 7
 text = "00"
 
@@ -471,6 +471,7 @@ position = Vector2( 22, 199 )
 texture = ExtResource( 14 )
 
 [node name="YSort" type="YSort" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 402, 216 )
@@ -1070,11 +1071,11 @@ position = Vector2( 1285, -238 )
 maxCounter = 3
 
 [node name="Stone4" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 1358, -138 )
+position = Vector2( 1360, -133 )
 maxCounter = 3
 
 [node name="Stone59" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 1428, -136 )
+position = Vector2( 1424, -123 )
 maxCounter = 3
 
 [node name="Stone60" parent="YSort" instance=ExtResource( 11 )]
@@ -1301,13 +1302,17 @@ altTexture = ExtResource( 20 )
 maxCounter = 5
 
 [node name="Stone32" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 1296, -116 )
+position = Vector2( 1306, -120 )
 altTexture = ExtResource( 20 )
 maxCounter = 5
 
 [node name="Stone33" parent="YSort" instance=ExtResource( 11 )]
-position = Vector2( 1295, -162 )
+position = Vector2( 1295, -159 )
 altTexture = ExtResource( 20 )
+maxCounter = 5
+
+[node name="Stone61" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 1301, -196 )
 maxCounter = 5
 
 [node name="Bancadinha" type="Sprite" parent="YSort"]
@@ -1321,6 +1326,7 @@ position = Vector2( 0.5, -9.5 )
 shape = SubResource( 19 )
 
 [node name="Water" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 2 )
 position = Vector2( 485, 595 )
 scale = Vector2( 88.1406, 88.1406 )
@@ -1337,6 +1343,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "FadeIn"
 anims/FadeIn = SubResource( 22 )
 anims/FadeOut = SubResource( 20 )
 anims/RESET = SubResource( 21 )
@@ -1344,7 +1351,7 @@ script = ExtResource( 26 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 27 )
-volume_db = -15.0
+volume_db = -80.0
 pitch_scale = 0.8
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_AnimationPlayer_animation_finished"]

@@ -35,7 +35,7 @@ func _physics_process(delta):
 	if time > 100:
 		time = 100
 	if time <= 0:
-		get_tree().change_scene("res://Scenes/GameOver.tscn")
+		get_owner().get_node("AnimationPlayer").play("FadeOut")
 	var axis = get_input_axis()
 	if Input.is_action_just_pressed("ui_select") and inResourceArea:
 		canMove = false
@@ -74,6 +74,7 @@ func _physics_process(delta):
 			#Acaba o jogo
 			canMove = false
 			motion = Vector2.ZERO
+			get_owner().get_node("AnimationPlayer").hasWon = true
 			get_owner().get_node("AnimationPlayer").play("FadeOut")
 			
 	elif axis == Vector2.ZERO:

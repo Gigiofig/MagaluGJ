@@ -1,6 +1,5 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://Imagens/FogueiraCentral1.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://environment_gradient_texture.tres" type="Texture" id=3]
 [ext_resource path="res://Shaders/WaterShader.tres" type="Shader" id=4]
@@ -17,7 +16,6 @@
 [ext_resource path="res://Objects/StoneDrop.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Stone.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Objects/Tree.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Objects/Muriel.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Objects/Artie.tscn" type="PackedScene" id=19]
 [ext_resource path="res://TitanOne-Regular.ttf" type="DynamicFontData" id=20]
 [ext_resource path="res://Theme/THEME.tres" type="Theme" id=21]
@@ -156,6 +154,7 @@ outline_size = 3
 font_data = ExtResource( 20 )
 
 [node name="Node2D" type="Node2D"]
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "PlayGame"
@@ -175,8 +174,8 @@ tile_data = PoolIntArray( -1900506, 6, 0, -1900505, 7, 0, -1900503, 6, 0, -19005
 [node name="Fogueira" parent="Node2D" instance=ExtResource( 10 )]
 material = SubResource( 4 )
 position = Vector2( 457, 450 )
-builtTexture = ExtResource( 5 )
-altTexture = ExtResource( 1 )
+isBuilt = true
+altTexture = ExtResource( 5 )
 isCampfire = true
 requirements = [ [ "Wood", 3 ], [ "Stone", 3 ], [ "RedFlower", 0 ], [ "PinkFlower", 0 ] ]
 
@@ -201,14 +200,12 @@ maxCounter = 5
 [node name="GrandmaHouse" parent="Node2D" instance=ExtResource( 9 )]
 position = Vector2( 431, 376 )
 
-[node name="Muriel" parent="Node2D/GrandmaHouse" index="2"]
-visible = false
-
 [node name="Stone29" parent="Node2D" instance=ExtResource( 16 )]
 position = Vector2( 537, 30 )
 maxCounter = 3
 
 [node name="Water" type="Sprite" parent="Node2D"]
+visible = false
 material = SubResource( 5 )
 position = Vector2( 485, 595 )
 scale = Vector2( 88.1406, 88.1406 )
@@ -243,7 +240,7 @@ index = 2
 dropTex = ExtResource( 11 )
 
 [node name="PinkFlower" parent="Node2D" instance=ExtResource( 15 )]
-position = Vector2( -94, 184 )
+position = Vector2( -102, 182 )
 type = "PinkFlower"
 index = 3
 dropTex = ExtResource( 6 )
@@ -385,16 +382,11 @@ margin_top = 57.0
 margin_right = 794.0
 margin_bottom = 132.0
 theme = ExtResource( 21 )
-custom_colors/font_color = Color( 0.243137, 0.164706, 0, 1 )
+custom_colors/font_color = Color( 0.796078, 0.305882, 0.0352941, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 10 )
 text = "Thanks for playing!"
 
-[node name="Muriel" parent="." instance=ExtResource( 18 )]
-position = Vector2( 533, 426 )
-
 [node name="Artie" parent="." instance=ExtResource( 19 )]
-position = Vector2( 276, 429 )
+position = Vector2( 376, 350 )
 flip_h = true
-
-[editable path="Node2D/GrandmaHouse"]
