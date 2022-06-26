@@ -7,8 +7,9 @@
 [ext_resource path="res://Shaders/wavy.tres" type="Shader" id=5]
 [ext_resource path="res://Imagens/Sombra.png" type="Texture" id=6]
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 10.2956
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 11.0
+height = 8.0
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 5 )
@@ -33,8 +34,8 @@ brokenTexture = ExtResource( 4 )
 drop = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -8 )
-shape = SubResource( 2 )
+position = Vector2( 0, -7 )
+shape = SubResource( 5 )
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 0, -3 )

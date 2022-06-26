@@ -145,7 +145,7 @@ margin_bottom = 64.0
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 352, 169 )
+position = Vector2( -183, -231 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
@@ -164,12 +164,14 @@ position = Vector2( 457, 352 )
 builtTexture = ExtResource( 8 )
 altTexture = ExtResource( 9 )
 isCampfire = true
+requirements = [ [ "Wood", 3 ], [ "Stone", 3 ], [ "RedFlower", 0 ], [ "PinkFlower", 0 ] ]
 
 [node name="Ponte1" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 2448, 908 )
 builtTexture = ExtResource( 19 )
 altTexture = ExtResource( 23 )
 isBridge = true
+requirements = [ [ "Wood", 9 ], [ "Stone", 4 ], [ "RedFlower", 0 ], [ "PinkFlower", 0 ] ]
 vertical = true
 
 [node name="Built" type="Sprite" parent="YSort/Ponte1"]
@@ -218,6 +220,7 @@ position = Vector2( -912, 1321 )
 builtTexture = ExtResource( 18 )
 altTexture = ExtResource( 21 )
 isBridge = true
+requirements = [ [ "Wood", 4 ], [ "Stone", 9 ], [ "RedFlower", 0 ], [ "PinkFlower", 0 ] ]
 
 [node name="Built" type="Sprite" parent="YSort/Ponte2"]
 visible = false
@@ -386,23 +389,27 @@ position = Vector2( 668, 624 )
 maxCounter = 3
 
 [node name="Tree52" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( -507, -256 )
+position = Vector2( -464, -347 )
 maxCounter = 3
 
 [node name="Tree54" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( -451, -304 )
+position = Vector2( -447, -243 )
 maxCounter = 3
 
 [node name="Tree56" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( -476, -207 )
+position = Vector2( -367, -195 )
+maxCounter = 3
+
+[node name="Tree83" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( -462, -159 )
 maxCounter = 3
 
 [node name="Tree58" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( -398, -223 )
+position = Vector2( -496, -199 )
 maxCounter = 3
 
 [node name="Tree55" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( -516, -333 )
+position = Vector2( -515, -324 )
 maxCounter = 3
 
 [node name="Tree39" parent="YSort" instance=ExtResource( 10 )]
@@ -426,7 +433,7 @@ position = Vector2( -90, -496 )
 maxCounter = 3
 
 [node name="Tree62" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( -203, -74 )
+position = Vector2( -402, -318 )
 maxCounter = 3
 
 [node name="Tree43" parent="YSort" instance=ExtResource( 10 )]
@@ -637,22 +644,27 @@ altTexture = ExtResource( 13 )
 maxCounter = 5
 
 [node name="Tree53" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( -508, -289 )
+position = Vector2( -507, -273 )
 altTexture = ExtResource( 13 )
 maxCounter = 5
 
 [node name="Tree57" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( -415, -255 )
+position = Vector2( -426, -199 )
 altTexture = ExtResource( 13 )
 maxCounter = 5
 
 [node name="Tree59" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( -434, -195 )
+position = Vector2( -369, -273 )
 altTexture = ExtResource( 13 )
 maxCounter = 5
 
 [node name="Tree60" parent="YSort" instance=ExtResource( 10 )]
-position = Vector2( -383, -175 )
+position = Vector2( -459, -297 )
+altTexture = ExtResource( 13 )
+maxCounter = 5
+
+[node name="Tree82" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( -334, -153 )
 altTexture = ExtResource( 13 )
 maxCounter = 5
 

@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Resources.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/Pedra2.png" type="Texture" id=2]
 [ext_resource path="res://Objects/StoneDrop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Imagens/PedraFarelo.png" type="Texture" id=4]
 [ext_resource path="res://Imagens/Sombra.png" type="Texture" id=5]
-[ext_resource path="res://Objects/Colliders/altStoneCollision.tres" type="Shape2D" id=6]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 25, 8 )
@@ -23,12 +22,6 @@ drop = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 11.25 )
 shape = SubResource( 4 )
-
-[node name="AltCollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 3.5, 10.25 )
-shape = ExtResource( 6 )
-disabled = true
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 0, 16 )
