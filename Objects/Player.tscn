@@ -1,10 +1,13 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/PlayerScript.gd" type="Script" id=1]
 [ext_resource path="res://Imagens/Artie.png" type="Texture" id=2]
 [ext_resource path="res://Imagens/Sombra.png" type="Texture" id=3]
 [ext_resource path="res://Audio/footstep.wav" type="AudioStream" id=4]
 [ext_resource path="res://Audio/Collect 2.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Rock Break 2.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/Colllect Burst.wav" type="AudioStream" id=7]
+[ext_resource path="res://stoneAnim.tres" type="Animation" id=8]
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 15, 10.5 )
@@ -28,7 +31,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=14]
 resource_name = "build"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -37,25 +40,46 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 16, 17, 18, 15, 16, 17, 18, 15 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Hit:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Hit:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 23 ]
+"update": 0,
+"values": [ 0.6 ]
 }
-
-[sub_resource type="Animation" id=3]
-resource_name = "collectStone"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3, 0.5, 0.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Construct:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.9 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 15, 16, 17, 18, 18 ]
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -72,6 +96,32 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 11, 10, 11, 12, 13, 14 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("../Hit")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.352507,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0.497962 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Hit:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.79 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -187,8 +237,8 @@ frame = 1
 root_node = NodePath("../Sprite")
 autoplay = "idle"
 anims/RESET = SubResource( 6 )
-anims/build = SubResource( 10 )
-anims/collectStone = SubResource( 3 )
+anims/build = SubResource( 14 )
+anims/collectStone = ExtResource( 8 )
 anims/collectWood = SubResource( 4 )
 anims/idle = SubResource( 5 )
 anims/walkDown = SubResource( 8 )
@@ -201,8 +251,14 @@ volume_db = -14.054
 pitch_scale = 0.73
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -5.0
+pitch_scale = 0.6
 
 [node name="Construct" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -6.807
+pitch_scale = 0.89
 
 [node name="Collect" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )

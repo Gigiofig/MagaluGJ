@@ -4,36 +4,22 @@
 [ext_resource path="res://Imagens/Flor2.png" type="Texture" id=2]
 [ext_resource path="res://Imagens/FogueiraLenhaReduzida.png" type="Texture" id=3]
 [ext_resource path="res://Imagens/Flor1.png" type="Texture" id=4]
+[ext_resource path="res://Theme/THEME.tres" type="Theme" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.5, 0.3965, 0.23, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.109804, 0.105882, 0.105882, 1 )
-border_blend = true
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-shadow_color = Color( 0.490196, 0.490196, 0.490196, 1 )
-shadow_size = 7
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.913725, 0.47451, 0.47451, 0.572549 )
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color( 0.168627, 0.129412, 0.129412, 1 )
-border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-shadow_color = Color( 0.164706, 0.00784314, 0.00784314, 1 )
-shadow_size = 5
+bg_color = Color( 0.415686, 0.0705882, 0.152941, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0.619608, 0.380392, 0.0705882, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_size = 2
+shadow_offset = Vector2( 0, 3 )
 
 [node name="Requirement" type="Control"]
 margin_left = -68.0
@@ -41,6 +27,7 @@ margin_top = -24.0
 margin_right = -68.0
 margin_bottom = -24.0
 rect_pivot_offset = Vector2( 68, 24 )
+theme = ExtResource( 5 )
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -52,7 +39,6 @@ anchor_bottom = 0.5
 margin_right = 136.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( 68, 25 )
-custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -66,7 +52,7 @@ margin_left = -67.0
 margin_top = -25.0
 margin_right = 66.0
 margin_bottom = 25.0
-custom_constants/separation = 36
+custom_constants/separation = 30
 __meta__ = {
 "_edit_lock_": true
 }
@@ -81,24 +67,21 @@ __meta__ = {
 }
 
 [node name="RockAmount" type="Label" parent="WoodnStone/HBoxContainer/TextureRec2"]
-margin_left = 42.0
+margin_left = 31.0
 margin_top = 18.0
-margin_right = 50.0
-margin_bottom = 32.0
+margin_right = 41.0
+margin_bottom = 37.0
 custom_colors/font_color = Color( 1, 0.913725, 0.564706, 1 )
 text = "4"
 align = 1
 valign = 1
 
 [node name="TextureRec" type="TextureRect" parent="WoodnStone/HBoxContainer"]
-margin_left = 68.0
-margin_right = 116.0
+margin_left = 62.0
+margin_right = 110.0
 margin_bottom = 50.0
 texture = ExtResource( 3 )
 stretch_mode = 4
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="WoodAmount" type="Label" parent="WoodnStone/HBoxContainer/TextureRec"]
 margin_left = 54.0
@@ -114,19 +97,16 @@ valign = 1
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 9.0
 margin_top = -8.0
-margin_right = 127.0
+margin_right = 136.0
 margin_bottom = 56.0
 rect_pivot_offset = Vector2( 59, 32 )
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Flowers"]
-margin_right = 132.0
+margin_left = 7.0
+margin_right = 139.0
 margin_bottom = 64.0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="TextureRec2" type="TextureRect" parent="Flowers/HBoxContainer"]
 margin_right = 64.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Imagens/Tilemap/tileset_Tilemap.tres" type="TileSet" id=2]
@@ -26,19 +26,10 @@
 [ext_resource path="res://Imagens/Bancadinha.png" type="Texture" id=24]
 [ext_resource path="res://environment_gradient_texture.tres" type="Texture" id=25]
 [ext_resource path="res://Scenes/AnimationPlayer.gd" type="Script" id=26]
-
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 0.66, 0.3234, 0.099, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 0.3, 0.1064, 0.036, 1 )
-border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[ext_resource path="res://Audio/Ocean - Calm Ocean & Birds 04.ogg" type="AudioStream" id=27]
+[ext_resource path="res://Theme/PANEL.tres" type="StyleBox" id=28]
+[ext_resource path="res://Theme/THEME.tres" type="Theme" id=29]
+[ext_resource path="res://Imagens/light.png" type="Texture" id=30]
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.396078, 0.101961, 0.101961, 1 )
@@ -53,19 +44,6 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 corner_detail = 20
-
-[sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0.690196, 0.0823529, 0.0823529, 1 )
-border_width_left = 25
-border_width_top = 25
-border_width_right = 25
-border_width_bottom = 25
-border_color = Color( 0.423529, 0.0392157, 0.0196078, 1 )
-border_blend = true
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 15 )
@@ -85,6 +63,34 @@ extents = Vector2( 10, 127 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 224, 10 )
+
+[sub_resource type="CanvasItemMaterial" id=23]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=24]
+colors = PoolColorArray( 0.94902, 0.478431, 0.0509804, 1, 0.717647, 0.164706, 0.054902, 0.427451 )
+
+[sub_resource type="GradientTexture" id=25]
+gradient = SubResource( 24 )
+width = 8
+
+[sub_resource type="ParticlesMaterial" id=26]
+trail_divisor = 2
+emission_shape = 1
+emission_sphere_radius = 12.32
+flag_disable_z = true
+spread = 165.0
+gravity = Vector3( 0, -30, 0 )
+angular_velocity = 117.55
+angular_velocity_random = 0.28
+orbit_velocity = 0.5
+orbit_velocity_random = 1.0
+radial_accel = 50.34
+radial_accel_random = 0.21
+damping = 28.57
+scale = 3.0
+scale_random = 1.0
+color_ramp = SubResource( 25 )
 
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 49.5, 14.5 )
@@ -182,6 +188,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.6, 1 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ -80.0, -15.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=20]
 resource_name = "FadeOut"
@@ -257,6 +287,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -15.0, -80.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=21]
 length = 0.001
@@ -298,6 +352,8 @@ tile_data = PoolIntArray( -1900506, 6, 0, -1900505, 7, 0, -1900503, 6, 0, -19005
 [node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 29 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true,
@@ -307,41 +363,45 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="CanvasLayer/Control"]
 margin_left = 25.0
 margin_top = 25.0
-margin_right = 152.0
+margin_right = 166.0
 margin_bottom = 66.0
-custom_styles/panel = SubResource( 8 )
+mouse_filter = 2
+custom_styles/panel = ExtResource( 28 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
 margin_left = 36.0
 margin_top = 29.0
 margin_right = 142.0
 margin_bottom = 61.0
+mouse_filter = 2
 
 [node name="WoodTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
 margin_right = 46.0
 margin_bottom = 32.0
+mouse_filter = 2
 texture = ExtResource( 14 )
 stretch_mode = 4
 
 [node name="WoodCounter" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
 margin_left = 50.0
-margin_top = 9.0
-margin_right = 58.0
-margin_bottom = 23.0
+margin_top = 6.0
+margin_right = 62.0
+margin_bottom = 25.0
 text = "0"
 
 [node name="StoneTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer"]
-margin_left = 62.0
-margin_right = 94.0
+margin_left = 66.0
+margin_right = 98.0
 margin_bottom = 32.0
+mouse_filter = 2
 texture = ExtResource( 12 )
 stretch_mode = 4
 
 [node name="StoneCounter" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
-margin_left = 98.0
-margin_top = 9.0
-margin_right = 106.0
-margin_bottom = 23.0
+margin_left = 102.0
+margin_top = 6.0
+margin_right = 114.0
+margin_bottom = 25.0
 text = "0"
 
 [node name="Panel2" type="Panel" parent="CanvasLayer/Control"]
@@ -350,6 +410,7 @@ margin_left = 730.0
 margin_top = 17.0
 margin_right = 865.0
 margin_bottom = 90.0
+mouse_filter = 2
 custom_styles/panel = SubResource( 9 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control"]
@@ -357,17 +418,20 @@ margin_left = 740.0
 margin_top = 22.0
 margin_right = 872.0
 margin_bottom = 86.0
+mouse_filter = 2
 
 [node name="RedFlowerTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer2"]
 visible = false
 margin_right = 64.0
 margin_bottom = 64.0
+mouse_filter = 2
 texture = ExtResource( 17 )
 
 [node name="PinkFlowerTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer2"]
 visible = false
 margin_right = 64.0
 margin_bottom = 64.0
+mouse_filter = 2
 texture = ExtResource( 16 )
 
 [node name="PotionTexture" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer2"]
@@ -375,26 +439,26 @@ visible = false
 margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 64.0
+mouse_filter = 2
 texture = ExtResource( 3 )
 
 [node name="Panel3" type="Panel" parent="CanvasLayer/Control"]
-margin_left = 831.0
-margin_top = 103.0
-margin_right = 865.0
-margin_bottom = 306.0
-custom_styles/panel = SubResource( 10 )
+margin_left = 828.0
+margin_top = 118.0
+margin_right = 859.0
+margin_bottom = 313.0
+mouse_filter = 2
 
-[node name="VSlider" type="VSlider" parent="CanvasLayer/Control/Panel3"]
+[node name="Progress" type="VSlider" parent="CanvasLayer/Control/Panel3"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 24.0
-margin_bottom = 197.0
+margin_bottom = 183.0
+rect_rotation = -359.999
+mouse_filter = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-value = 100.0
-editable = false
-scrollable = false
-tick_count = 10
+value = 30.0
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -560,11 +624,34 @@ type = "RedFlower"
 index = 2
 dropTex = ExtResource( 17 )
 
+[node name="Particles2D" type="Particles2D" parent="YSort/RedFlower"]
+material = SubResource( 23 )
+amount = 15
+randomness = 0.17
+process_material = SubResource( 26 )
+
+[node name="Light2D" type="Light2D" parent="YSort/RedFlower"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 30 )
+energy = 0.5
+
 [node name="PinkFlower" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( -94, -97 )
+position = Vector2( -110, -113 )
 type = "PinkFlower"
 index = 3
 dropTex = ExtResource( 16 )
+
+[node name="Light2D2" type="Light2D" parent="YSort/PinkFlower"]
+position = Vector2( -3, -1 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 30 )
+energy = 0.5
+
+[node name="Particles2D" type="Particles2D" parent="YSort/PinkFlower"]
+material = SubResource( 23 )
+amount = 15
+randomness = 0.17
+process_material = SubResource( 26 )
 
 [node name="Tree" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1722, 1049 )
@@ -1232,5 +1319,10 @@ anims/FadeIn = SubResource( 22 )
 anims/FadeOut = SubResource( 20 )
 anims/RESET = SubResource( 21 )
 script = ExtResource( 26 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+volume_db = -15.0
+pitch_scale = 0.8
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_AnimationPlayer_animation_finished"]

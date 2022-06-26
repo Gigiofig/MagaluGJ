@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 onready var animPlayer = $AnimationPlayer
-onready var slider = get_owner().get_node("CanvasLayer/Control/Panel3/VSlider")
+onready var slider = get_owner().get_node("CanvasLayer/Control/Panel3/Progress")
 export var MAX_SPEED = 200
 export var ACCELERATION = 2000
 var canPlay = true

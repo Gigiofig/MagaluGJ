@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ocean - Calm Ocean & Birds 04.ogg-07528e91bc299a52c590def67bd8fc5e.oggstr"
+
+[deps]
+
+source_file="res://Audio/Ocean - Calm Ocean & Birds 04.ogg"
+dest_files=[ "res://.import/Ocean - Calm Ocean & Birds 04.ogg-07528e91bc299a52c590def67bd8fc5e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
