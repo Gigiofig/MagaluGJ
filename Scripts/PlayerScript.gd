@@ -25,11 +25,13 @@ signal PinkFlowerCollected
 
 #Movement Start
 func _physics_process(delta):
+
 	var axis = get_input_axis()
 	if Input.is_action_just_pressed("ui_select") and inResourceArea:
 		canMove = false
 		motion = Vector2.ZERO
 		AnimationPlay("collect" + str(resourceType))
+		currentResource.back().Shake()
 		yield(animPlayer, "animation_finished")
 		canMove = true
 	elif Input.is_action_just_pressed("ui_select") and inBuildableArea and (!currentBuildable.isBuilt or currentBuildable.isCampfire):
@@ -103,7 +105,6 @@ func AnimationPlay(animation):
 #Resource Collection
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if "collect" in anim_name:
-		print(currentResource)
 		currentResource.back().IncreaseCounter()
 
 func Collect(index, type, object):

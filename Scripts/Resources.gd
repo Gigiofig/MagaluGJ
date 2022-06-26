@@ -4,6 +4,8 @@ export var type = ""
 export (Texture) var altTexture
 export (Texture) var brokenTexture
 export (PackedScene) var drop
+var smallStoneSprite
+var smallCollisionShape
 var counter = 0
 var isDestroyed = false
 export var maxCounter = 1
@@ -11,13 +13,16 @@ export var maxCounter = 1
 
 func _ready():
 	if altTexture != null:
-		$Sprite.texture = altTexture
 		if "Stone" in name:
+			smallStoneSprite = $Sprite.texture
+			smallCollisionShape = $CollisionShape2D.shape
 			$CollisionShape2D.shape = load("res://Objects/Colliders/altStoneCollision.tres")
 			$Shadow.scale = Vector2(1.3, 0.8)
 			$Shadow.position = Vector2(3, 18)
 			$Sprite.scale = Vector2(2, 2)
 			$Sprite.position = Vector2(0, -20)
+			
+		$Sprite.texture = altTexture
 
 func _on_Area2D_body_entered(body):
 	if "Player" in body.name and !isDestroyed:
@@ -42,9 +47,24 @@ func IncreaseCounter():
 	if counter >= maxCounter:
 		Destroy(type)
 	elif counter == 3:
+		if "Stone" in name:
+			$CollisionShape2D.shape = load("res://Objects/Colliders/altStoneCollision.tres")
+			$Shadow.scale = Vector2(0.9, 0.8)
+			$Shadow.position = Vector2(0, 16)
+			$Sprite.scale = Vector2(1, 1)
+			$Sprite.position = Vector2(0, 0)
+			$Sprite.texture = smallStoneSprite
 		Drop(type)
 	
-	
+func Shake():
+	var lastPos = position.x
+	for i in range(10):
+		position.x += 1
+		yield(get_tree().create_timer(0.05), "timeout")
+		position.x -= 2
+		yield(get_tree().create_timer(0.05), "timeout")
+		position.x = lastPos
+
 
 func Drop(resourceType):
 	var drop_instance = drop.instance()
