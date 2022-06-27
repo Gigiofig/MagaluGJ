@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Stars_and_Constellations_-_Sarah_The_Illstrumentalist.ogg-d47770f56f7ff7d65888eaf093ca6514.oggstr"
+
+[deps]
+
+source_file="res://Audio/Stars_and_Constellations_-_Sarah_The_Illstrumentalist.ogg"
+dest_files=[ "res://.import/Stars_and_Constellations_-_Sarah_The_Illstrumentalist.ogg-d47770f56f7ff7d65888eaf093ca6514.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
