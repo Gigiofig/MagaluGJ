@@ -8,5 +8,7 @@ func _input(event):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	isAnimationFinished = true
+	if anim_name == "StartGame":
+		$AnimationPlayer.play("PressToStart")
 	if anim_name == "PlayGame":
 		get_tree().change_scene("res://Scenes/GameScene.tscn")
